@@ -1,0 +1,116 @@
+CSE,2018-2019,2,2,1,Monday,1,Formal Language and Automata Theory,11CSE010,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,1,Monday,1,Java Programming,07CSE054,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,1,Monday,1,Software Engineering,08CSE001,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,1,Monday,1,Computer Organization,16CSE044,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,1,Monday,1,Data Base Management Systems,07CSE028,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,1,Tuesday,1,Design and Analysis of Algorithms,00CSE010,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,1,Tuesday,1,Computer Organization,16CSE044,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,1,Tuesday,1,Formal Language and Automata Theory,11CSE010,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,1,Tuesday,3,Java Programming and Design Analysis of Algorithms Laboratory,07CSE054,01:40 PM - 04:40 PM
+CSE,2018-2019,2,2,1,Tuesday,3,Data Base Management Systems Laboratory,07CSE028,01:40 PM - 04:40 PM
+CSE,2018-2019,2,2,1,Wednesday,1,Formal Language and Automata Theory,11CSE010,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,1,Wednesday,1,Data Base Management Systems,07CSE028,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,1,Wednesday,1,Design and Analysis of Algorithms,00CSE010,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,1,Wednesday,1,Software Engineering,08CSE001,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,1,Wednesday,2,Gender Sensitization,,02:40 PM - 04:40 PM
+CSE,2018-2019,2,2,1,Thursday,3,Java Programming and Design Analysis of Algorithms Laboratory,07CSE054,10:00 AM - 01:00 PM 
+CSE,2018-2019,2,2,1,Thursday,3,Data Base Management Systems Laboratory,07CSE028,10:00 AM - 01:00 PM 
+CSE,2018-2019,2,2,1,Thursday,1,Formal Language and Automata Theory,11CSE010,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,1,Thursday,1,Java Programming,07CSE054,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,1,Friday,1,Computer Organization,16CSE044,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,1,Friday,1,Java Programming,07CSE054,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,1,Friday,1,Data Base Management Systems,07CSE028,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,1,Friday,1,Design and Analysis of Algorithms,00CSE010,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,1,Friday,1,Software Engineering,08CSE001,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,1,Saturday,1,Java Programming,07CSE054,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,1,Saturday,1,Software Engineering,08CSE001,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,1,Saturday,1,Design and Analysis of Algorithms,00CSE010,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,1,Saturday,1,Data Base Management Systems,07CSE028,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,1,Saturday,1,Computer Organization,16CSE044,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,2,Monday,3,Java Programming and Design Analysis of Algorithms Laboratory,07CSE011,10:00 AM - 01:00 PM 
+CSE,2018-2019,2,2,2,Monday,3,Data Base Management Systems Laboratory,97CSE009,10:00 AM - 01:00 PM 
+CSE,2018-2019,2,2,2,Monday,1,Data Base Management Systems ,97CSE009,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,2,Monday,1,Software Engineering,15CSE094,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,2,Monday,1,Design and Analysis of Algorithms,00CSE010,03:40 PM - 04:40 PM
+CSE,2018-2019,2,2,2,Tuesday,1,Data Base Management Systems,97CSE009,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,2,Tuesday,1,Formal Language and Automata Theory,07CSE062,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,2,Tuesday,1,Design and Analysis of Algorithms,00CSE010,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,2,Tuesday,1,Computer Organization,16CSE044,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,2,Tuesday,1,Java Programming ,07CSE011,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,2,Wednesday,1,Design and Analysis of Algorithms,00CSE010,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,2,Wednesday,1,Data Base Management Systems,97CSE009,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,2,Wednesday,1,Formal Language and Automata Theory,07CSE062,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,2,Wednesday,3,Java Programming and Design Analysis of Algorithms Laboratory,07CSE011,01:40 PM - 04:40 PM
+CSE,2018-2019,2,2,2,Wednesday,3,Data Base Management Systems Laboratory,97CSE009,01:40 PM - 04:40 PM
+CSE,2018-2019,2,2,2,Thursday,1,Formal Language and Automata Theory,07CSE062,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,2,Thursday,1,Design and Analysis of Algorithms,00CSE010,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,2,Thursday,1,Software Engineering,15CSE094,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,2,Thursday,1,Java Programming,07CSE011,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,2,Thursday,1,Computer Organization,16CSE044,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,2,Friday,1,Java Programming,07CSE011,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,2,Friday,1,Computer Organization,16CSE044,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,2,Friday,1,Data Base Mangement Systems,97CSE009,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,2,Friday,1,Software Engineering,15CSE094,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,2,Saturday ,1,Computer Organization,16CSE044,10:00 AM - 11:00 AM
+CSE,2018-2019,2,2,2,Saturday ,1,Java Programming,07CSE011,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,2,Saturday ,1,Software Engineering,15CSE094,12:00 PM - 01:00PM
+CSE,2018-2019,2,2,2,Saturday ,1,Formal Language and Automata Theory,07CSE062,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,2,Saturday ,2,Gender SenSitization,,02:40 PM - 04:40 PM
+CSE,2018-2019,2,2,3,Monday,1,Software Engineering,08CSE001,10:00 AM -11:00 AM
+CSE,2018-2019,2,2,3,Monday,1,Data Base Management Systems,10CSE006,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,3,Monday,1,Formal Language and Automata Theory,16CSE111,12:00 PM - 01:00 PM
+CSE,2018-2019,2,2,3,Monday,1,Design and Analysis of Algorithms,14CSE020,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,3,Monday,2,Gender Sensitization,,02:40 PM - 04:40 PM
+CSE,2018-2019,2,2,3,Tuesday,1,Computer Organisation,15CSE091,10:00 AM -11:00 AM
+CSE,2018-2019,2,2,3,Tuesday,1,JAVA Programming,15CSE022,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,3,Tuesday,1,Software Engineering,08CSE001,12:00 PM - 01:00 PM
+CSE,2018-2019,2,2,3,Tuesday,3,JAVA Programming and Design Analysis of Algorithms Laboratory (JAVA & DAA Lab),15CSE091,01:40 PM - 04:40 PM
+CSE,2018-2019,2,2,3,Tuesday,3,Data Base Management Systems Laboratory (DBMS Lab),10CSE006,01:40 PM - 04:40 PM
+CSE,2018-2019,2,2,3,Wednesday,3,JAVA Programming and Design Analysis of Algorithms Laboratory (JAVA & DAA Lab),15CSE091,10:00 AM - 01:00 PM
+CSE,2018-2019,2,2,3,Wednesday,3,Data Base Management Systems Laboratory (DBMS Lab),10CSE006,10:00 AM - 01:00 PM
+CSE,2018-2019,2,2,3,Wednesday,1,Formal Language and Automata Theory,16CSE111,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,3,Wednesday,1,Computer Organisation,15CSE091,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,3,Thursday,1,Formal Language and Automata Theory,16CSE111,10:00 AM -11:00 AM
+CSE,2018-2019,2,2,3,Thursday,1,Software Engineering,08CSE001,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,3,Thursday,1,Data Base Management Systems,10CSE006,12:00 PM - 01:00 PM
+CSE,2018-2019,2,2,3,Thursday,1,JAVA Programming,15CSE022,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,3,Thursday,1,Design and Analysis of Algorithms,14CSE020,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,3,Friday,1,Design and Analysis of Algorithms,14CSE020,10:00 AM -11:00 AM
+CSE,2018-2019,2,2,3,Friday,1,Data Base Management Systems,10CSE006,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,3,Friday,1,Computer Organisation,15CSE091,12:00 PM - 01:00 PM
+CSE,2018-2019,2,2,3,Friday,1,JAVA Programming,15CSE022,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,3,Friday,1,Formal Language and Automata Theory,16CSE111,02:40 PM - 03:40 PM
+CSE,2018-2019,2,2,3,Saturday,1,JAVA Programming,15CSE022,10:00 AM -11:00 AM
+CSE,2018-2019,2,2,3,Saturday,1,Computer Organisation,15CSE091,11:00 AM - 12:00 PM
+CSE,2018-2019,2,2,3,Saturday,1,Design and Analysis of Algorithms,14CSE020,12:00 PM - 01:00 PM
+CSE,2018-2019,2,2,3,Saturday,1,Software Engineering,08CSE001,01:40 PM - 02:40 PM
+CSE,2018-2019,2,2,3,Saturday,1,Data Base Management Systems,10CSE006,02:40 PM - 03:40 PM
+CSE ,2018-2019,2,2,4,Monday,1,Formal Language and Automata Theory,10CSE023,10:00 AM -11:00 AM
+CSE ,2018-2019,2,2,4,Monday,1,Software Engineering,15CSE094,11:00 AM - 12:00 PM
+CSE ,2018-2019,2,2,4,Monday,1,Computer Organisation,12CSE053,12:00 PM - 01:00 PM
+CSE ,2018-2019,2,2,4,Monday,3,JAVA Programming and Design Analysis of Algorithms Laboratory (JAVA & DAA Lab),16CSE133,01:40 PM - 04:40 PM
+CSE ,2018-2019,2,2,4,Monday,3,Data Base Management Systems Laboratory (DBMS Lab),08CSE028,01:40 PM - 04:40 PM
+CSE ,2018-2019,2,2,4,Tuesday,3,JAVA Programming and Design Analysis of Algorithms Laboratory (JAVA & DAA Lab),16CSE133,10:00 AM - 01:00 PM
+CSE ,2018-2019,2,2,4,Tuesday,3,Data Base Management Systems Laboratory (DBMS Lab),08CSE028,10:00 AM - 01:00 PM
+CSE ,2018-2019,2,2,4,Tuesday,1,Design and Analysis of Algorithms,14CSE020,01:40 PM - 02:40 PM
+CSE ,2018-2019,2,2,4,Tuesday,1,Data Base Management Systems,08CSE028,02:40 PM - 03:40 PM
+CSE ,2018-2019,2,2,4,Wednesday,1,Design and Analysis of Algorithms,14CSE020,10:00 AM -11:00 AM
+CSE ,2018-2019,2,2,4,Wednesday,1,Formal Language and Automata Theory,10CSE023,11:00 AM - 12:00 PM
+CSE ,2018-2019,2,2,4,Wednesday,1,JAVA Programming,16CSE133,12:00 PM - 01:00 PM
+CSE ,2018-2019,2,2,4,Wednesday,1,Software Engineering,15CSE094,01:40 PM - 02:40 PM
+CSE ,2018-2019,2,2,4,Wednesday,1,Data Base Management Systems,08CSE028,02:40 PM - 03:40 PM
+CSE ,2018-2019,2,2,4,Thursday,1,JAVA Programming,16CSE133,10:00 AM -11:00 AM
+CSE ,2018-2019,2,2,4,Thursday,1,Design and Analysis of Algorithms,14CSE020,11:00 AM - 12:00 PM
+CSE ,2018-2019,2,2,4,Thursday,1,Data Base Management Systems,08CSE028,12:00 PM - 01:00 PM
+CSE ,2018-2019,2,2,4,Thursday,1,Computer Organisation,12CSE053,01:40 PM - 02:40 PM
+CSE ,2018-2019,2,2,4,Thursday,2,Gender Sensitization,,02:40 PM - 04:40 PM
+CSE ,2018-2019,2,2,4,Friday,1,Data Base Management Systems,08CSE028,10:00 AM -11:00 AM
+CSE ,2018-2019,2,2,4,Friday,1,Software Engineering,15CSE094,11:00 AM - 12:00 PM
+CSE ,2018-2019,2,2,4,Friday,1,Computer Organisation,12CSE053,12:00 PM - 01:00 PM
+CSE ,2018-2019,2,2,4,Friday,1,Formal Language and Automata Theory,10CSE023,01:40 PM - 02:40 PM
+CSE ,2018-2019,2,2,4,Friday,1,JAVA Programming,16CSE133,02:40 PM - 03:40 PM
+CSE ,2018-2019,2,2,4,Saturday,1,Software Engineering,15CSE094,10:00 AM -11:00 AM
+CSE ,2018-2019,2,2,4,Saturday,1,Formal Language and Automata Theory,10CSE023,11:00 AM - 12:00 PM
+CSE ,2018-2019,2,2,4,Saturday,1,JAVA Programming,16CSE133,12:00 PM - 01:00 PM
+CSE ,2018-2019,2,2,4,Saturday,1,Computer Organisation,12CSE053,01:40 PM - 02:40 PM
+CSE ,2018-2019,2,2,4,Saturday,1,Design and Analysis of Algorithms,14CSE020,02:40 PM - 03:40 PM

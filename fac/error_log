@@ -1,0 +1,16 @@
+[21-Feb-2019 13:32:37 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in C:\xampp\htdocs\udd\upload.php:37
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\udd\upload.php on line 37
+[21-Feb-2019 13:33:10 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in C:\xampp\htdocs\udd\upload.php:37
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\udd\upload.php on line 37
+[21-Feb-2019 13:33:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in C:\xampp\htdocs\udd\upload.php:37
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\udd\upload.php on line 37
+[21-Feb-2019 13:37:34 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in C:\xampp\htdocs\udd\upload.php:37
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\udd\upload.php on line 37

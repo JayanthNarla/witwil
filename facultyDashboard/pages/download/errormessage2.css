@@ -1,0 +1,61 @@
+/* @FileName: errormessage.less
+ * @Description: Contains error message styles.
+ * @Author: Moonraft
+ */
+div.error-box {
+  background-color: #fefacd;
+  padding: 30px 0 28px 20px;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+div.error-box div.error-icon {
+  width: 46px;
+  height: 38px;
+  margin-right: 26px;
+  background: url(images/alert.png);
+  float: left;
+  background-position-y: -4px;
+}
+div.error-box div.error-right {
+  font-size: 16px;
+  color: #e8664e;
+}
+div.error-box div.error-right div.error-msg {
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+.error-label,
+#fixedDeposit .error-label span.star {
+  color: #e8664e;
+}
+#fixedDeposit .error-select-box .selectboxit,
+#fixedDeposit .error-select-box select {
+  background-color: #fefacd;
+  color: #dd0000;
+}
+#fixedDeposit .error-select-box .selectboxit .selectboxit-text,
+#fixedDeposit .error-select-box select .selectboxit-text {
+  font-weight: bold;
+}
+#fixedDeposit .error-select-box select {
+  float: none;
+}
+#fixedDeposit .error-input-box input.cm-input-box {
+  background-color: #fefacd;
+  color: #dd0000;
+  font-weight: bold;
+}
+.error-text {
+  font-size: 11px;
+  color: #e8664e;
+  line-height: 13px;
+  margin-top:10px;
+}
+.wpthemeComplementaryContent  , header.wpthemeControlHeader, .component-control div.wpthemeInner{
+	display:none;
+}.m_err-msg{
+	float: right;
+	width: 545px;
+}.m_left{
+	float: left;
+}
