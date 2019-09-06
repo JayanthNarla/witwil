@@ -1,4 +1,70 @@
 <?php
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// require ('../');
+
+require ('../PHPMailer/src/Exception.php');
+require ('../PHPMailer/src/PHPMailer.php');
+require ('../PHPMailer/src/SMTP.php');
+
+$con=mysqli_connect("localhost","root","","login");
+if(mysqli_connect_errno()){
+  echo "Failed to connect: ". mysqli_connect_errno();
+}
+
+// Instantiation and passing `true` enables exceptions
+
+if(isset($_POST["email"])){
+
+  $sql = "SELECT * FROM studentdb WHERE rollno ='".$_POST['id']."' ";
+  $res = mysqli_query($con, $sql);
+  $r = mysqli_fetch_assoc($res);
+  $pwd = $r['password'];
+  $emailTo = $_POST['email'];
+  $r_id = $r['rollno'];
+
+  // if($f_id==$_POST["id"] && $emailTo == $_POST["email"]){
+    $mail = new PHPMailer(true);
+    try {
+      //Server settings
+      // $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+      $mail->isSMTP();                                            // Set mailer to use SMTP
+      $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+      $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+      $mail->Username   = 'yourmail@gmail.com';                     // SMTP username
+      $mail->Password   = 'yourpwd';                               // SMTP password
+      $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+      $mail->Port       = 587;                                    // TCP port to connect to
+
+      //Recipients
+      $mail->setFrom('yourmail@gmail.com', 'WIT-WIL');
+      $mail->addAddress($emailTo);     // Add a recipient
+      $mail->addReplyTo('no-reply@gmail.com', 'No Reply');
+
+      // Content
+      $mail->isHTML(true);                                  // Set email format to HTML
+      $mail->Subject = 'Your password';
+      $mail->Body    = "Your password for WIT-WIL Website is <h1>$pwd</h1>";
+
+      $mail->send();
+      echo 'Your Password has been sent to your mail';
+    } 
+    catch (Exception $e) {
+      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+  }
+  // else{
+  //   echo "Enter correct details. ".$_POST['id']." $emailTo      $f_id   ".$_POST['email']."";
+  // }
+
+  
+// }
+?>
+
+<?php
 session_start();
 ?>
 <html>
@@ -84,21 +150,22 @@ input[type=submit] {
 </style>
 </head>
 <body>
-<form name="frmChange" method="post" action="" >
-
-Student id :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" name="studentid" span id="currentPassword" required>
+<form name="frmChange" method="post" action="" autocomplete="off" >
+<!-- 
+Admin id :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="adminid" span id="currentPassword" required>
+<br> -->
+Roll no :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="id" span id="currentPassword" required>
+<br>
+Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="email" name="email" span id="currentPassword" required>
 <br>
 
-New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="password" id="newPassword" name="newPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-<br>
-Confirm Password:&nbsp;
-<input type="password" name="confirmPassword" required/><br>
 <input type="submit" name="submit" value="Submit" >
 
 </form>
-<div id="message">
+<!-- <div id="message">
   <h3>Password must contain the following:</h3>
   <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
   <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
@@ -164,7 +231,7 @@ myInput.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
-</script>       
+</script>        -->
 				
 				
 </body></html>
@@ -173,23 +240,23 @@ myInput.onkeyup = function() {
 <?php
 
 
-$conn = mysqli_connect("localhost", "root", "", "login") or die("Connection Error: " . mysqli_error($conn));
+// $conn = mysqli_connect("localhost", "root", "", "login") or die("Connection Error: " . mysqli_error($conn));
 
-if (count($_POST) > 0) {
-    $result = mysqli_query($conn,  "SELECT * from studentdb WHERE rollno='" . $_POST["studentid"]. "'");
-    $row = mysqli_fetch_array($result);
+// if (count($_POST) > 0) {
+//     $result = mysqli_query($conn,  "SELECT * from admindb WHERE adminId='" . $_POST["adminid"]. "'");
+//     $row = mysqli_fetch_array($result);
 	
 	
     
-    if ($_POST["facultyid"] == $row["facultyId"] && $_POST["newPassword"] == $_POST["confirmPassword"] ) {
-        mysqli_query($conn, "UPDATE studentdb set password='" . $_POST["newPassword"] . "' WHERE rollno='" . $_POST["studentid"]. "'");
+//     if ($_POST["newPassword"] == $_POST["confirmPassword"] && $_POST["email"] == $row["email"]) {
+//         mysqli_query($conn, "UPDATE admindb set password='" . $_POST["newPassword"] . "' WHERE adminId='" . $_POST["adminid"]. "'");
         
-		  echo "<script>alert('password changed');window.location.href='http://10.45.8.185/witnwil/login/studentlogin.php';  </script>"; 
+// 		  echo "<script>alert('password changed');window.location.href='http://10.45.8.185/witnwil/homepage.php';  </script>"; 
 		
-    } 
+//     } 
 	
-	else
-          echo '<script language="javascript">alert(" informaion is wrong")</script>';
-}
+// 	else
+//           echo '<script language="javascript">alert(" informaion is wrong")</script>';
+// }
 
 ?>
