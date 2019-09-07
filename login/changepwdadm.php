@@ -18,6 +18,8 @@ if(mysqli_connect_errno()){
 // Instantiation and passing `true` enables exceptions
 
 if(isset($_POST["email"])){
+  $send_mail='websitedb1@gmail.com';
+  $send_pwd='website@2019';
 
   $sql = "SELECT * FROM admindb WHERE adminId ='".$_POST['id']."' ";
   $res = mysqli_query($con, $sql);
@@ -34,13 +36,13 @@ if(isset($_POST["email"])){
       $mail->isSMTP();                                            // Set mailer to use SMTP
       $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
       $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-      $mail->Username   = 'yourmail@gmail.com';                     // SMTP username
-      $mail->Password   = 'yourpwd';                               // SMTP password
+      $mail->Username   = $send_mail;                     // SMTP username
+      $mail->Password   = $send_pwd;                               // SMTP password
       $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
       $mail->Port       = 587;                                    // TCP port to connect to
 
       //Recipients
-      $mail->setFrom('yourmail@gmail.com', 'WIT-WIL');
+      $mail->setFrom($send_mail, 'WIT-WIL');
       $mail->addAddress($emailTo);     // Add a recipient
       $mail->addReplyTo('no-reply@gmail.com', 'No Reply');
 
