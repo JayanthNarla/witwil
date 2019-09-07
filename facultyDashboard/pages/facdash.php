@@ -27,6 +27,7 @@ session_start(); ?>
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,6 +51,18 @@ session_start(); ?>
   background-color:#dc2430; /* For browsers that do not support gradients */
   
 }
+table {
+  border-spacing: 0px;  
+  
+    }
+td {
+  background: #FFF;
+  padding: 10px;  
+}
+
+fieldset{
+    width:400px;
+}
 </style >
 <script type="text/javascript">
 function noBack(){window.history.forward();}
@@ -62,7 +75,7 @@ window.onunload=function(){void(0);}
 
 <body id="grad1">
 
-    <div id="wrapper" ">
+    <div id="wrapper" >
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="grad2">
@@ -85,7 +98,7 @@ window.onunload=function(){void(0);}
                         <li><a href="changepwd.php"><i class="fa fa-gear fa-fw"></i> Change password</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="http://10.45.8.185/witnwil/login/facultylogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="http://localhost/witnwil/login/facultylogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -111,12 +124,48 @@ window.onunload=function(){void(0);}
                         </li>                       
                         
                     </ul>
+					
                 </div>
+				
                 <!-- /.sidebar-collapse -->
             </div>
+			
             <!-- /.navbar-static-side -->
         </nav>
 
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Time-Table</h1>
+                    
+<fieldset >
+<pre>
+<table class="table table-striped" style="width:300px">
+    <thead>
+        <tr>
+        <th scope="col">Subject</th>
+        <th scope="col">Hour</th>
+        </tr>
+    </thead>
+    <?php
+		$connect = mysqli_connect("localhost", "root", "", "login");
+		$sql = "select * from ttinfo where faculty_id='".$_SESSION['id']."' and day=DAYNAME(CURDATE());";
+        $result = mysqli_query($connect,$sql);
+        while($row = mysqli_fetch_assoc($result))
+        {
+    ?>
+    <tbody>
+        <td><?php echo $row['subject'];?></td>
+        <td><?php /*echo $row['hour'];*/ echo"*"?></td>
+    </tbody>
+        <?php }	?>
+  </table>
+</pre>
+  </fieldset>
+</div>
+                <!-- /.col-lg-12 -->
+            </div>
+</div>
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 

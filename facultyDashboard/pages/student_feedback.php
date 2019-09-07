@@ -13,7 +13,7 @@ session_start();
     <meta name="author" content="">
 
     <title>WIT & WIL</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -36,6 +36,7 @@ session_start();
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
+
 	#grad1 {
 
   background-color: white; /* For browsers that do not support gradients */
@@ -51,6 +52,10 @@ session_start();
   background-color:#dc2430; /* For browsers that do not support gradients */
   
 }
+fieldset{
+    width: 600px;
+}
+
 </style>
 <script type="text/javascript">
 function noBack(){window.history.forward();}
@@ -86,7 +91,7 @@ window.onunload=function(){void(0);}
                         <li><a href="changepwd.php"><i class="fa fa-gear fa-fw"></i> Change password</a>
                         </li>
                         <li class="divider"></li>
-                          <li><a href="http://10.45.8.185/witnwil/login/facultylogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                          <li><a href="http://localhost:8081/witnwil/login/facultylogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -127,20 +132,21 @@ window.onunload=function(){void(0);}
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            
 			<form method="post">
-          Subject <select name="subject1" id="subject1"><option value="">--- Select ---</option>
+            <fieldset>
+            <pre>    Subject <select name="subject1" id="subject1"><option value="">--- Select ---</option>
 <?php
 $connect1= mysqli_connect("localhost", "root", "","login");						
 $list1=mysqli_query($connect1,"select  distinct(subject) from ttinfo where faculty_id ='".$_SESSION['id']."'  ;");
 while($row_list1 = mysqli_fetch_assoc($list1)){
-
 ?>
 <option>    <?php echo $row_list1['subject']; ?>  </option>
 <?php
-
 }?>
-</select>
-<input type="submit" name="sub" class="btn btn-primary" value="Display" />
+</select>&nbsp;&nbsp;&nbsp;<input type="submit" name="sub" class="btn btn-primary" value="Display" />
+</pre>
+            </fieldset>
 <form>
 <br>
 <br>
@@ -153,7 +159,6 @@ while($row_list1 = mysqli_fetch_assoc($list1)){
   <thead>
    <tr>
     <th><font face="comic sans ms">Rollno</font></th>
-    <th><font face="comic sans ms">Subject	</font></th>
 	<th><font face="comic sans ms"> Unit </font></th>
 	<th><font face="comic sans ms"> Files </font></th>
   </tr>
@@ -163,48 +168,44 @@ while($row_list1 = mysqli_fetch_assoc($list1)){
 
 	$link=mysqli_connect("localhost","root","");
 	mysqli_select_db($link,"login");
-//	$q="select count(*) \"total\"  from studentdoc where faculty='".$_SESSION['user']."' ";
-	//$ros=mysqli_query($link,$q);
-	//$row=(mysqli_fetch_array($ros));
-//	$total=$row['total'];
-	//$dis=3;
-	//$total_page=ceil($total/$dis);
-	//$page_cur=(isset($_GET['page']))?$_GET['page']:1;
-	//$k=($page_cur-1)*$dis;
+
 	$q="SELECT * FROM studentdoc where faculty='".$_SESSION['user']."' and subject='".$_POST['subject1']."'";
 	$ros=mysqli_query($link,$q);
-	
+	$check=0;
 	while($data=mysqli_fetch_array($ros)):
+	$c=0;
 	?>	
-		<tr>
+	<tr>
 				  
-                  <td><?php echo $data['rollno'] ?></td>
-                  <td><?php echo $data['subject']?></td>
-				    <td><?php echo $data['unit']?></td>
-				  <td> <a href="http://10.45.8.185/witnwil/studentDashboard/pages/upload/<?php echo $data['file']?>" target="new"><?php echo $data['file']?></a></td>
-				  
-                </tr>
-			  <?php
+    <td>
+	<?php 
+	
+	echo $data['rollno'] ?></td>
+	<td ><?php echo $data['unit']?></td>
+	<td >
+		<a href="http://localhost:8081/witnwil/studentDashboard/pages/upload/<?php echo $data['file']?>" target="new">
+		   <?php
+			echo $data['file'];
+			
+			?>
+			</a></td>
 
-				endwhile;
-			  ?>
-              </tbody>
+		
+	</tr>
+	<?php
+	endwhile;
+	?>
+    </tbody>
 		</table>
 	
      <?php
-
-			   }
-			  ?>
-
-                
-                
-            </div>
+	 }
+	 ?>
+	</div>
             <!-- /.row -->
-           
-               
-            </div>
+	</div>
             <!-- /.row -->
-        </div>
+      </div>
         <!-- /#page-wrapper -->
 
     </div>

@@ -56,6 +56,9 @@ session_start();
   background-color:#dc2430; /* For browsers that do not support gradients */
   
 }
+fieldset{
+    width:600px;
+}
 </style >
 <script type="text/javascript">
 function noBack(){window.history.forward();}
@@ -68,7 +71,7 @@ window.onunload=function(){void(0);}
 
 <body id="grad1">
 
-    <div id="wrapper" ">
+    <div id="wrapper" >
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="grad2">
@@ -144,11 +147,8 @@ window.onunload=function(){void(0);}
 <form  method="post">
 <fieldset>
   
-  <pre>
-Date : <input type="date" name="date1" />      <input type="submit" class="btn btn-primary" name="submit" value="submit"/> 
-
-  </pre>   			 
-            
+  <pre>   Date : <input type="date" name="date1" />      <input type="submit" class="btn btn-primary" name="submit" value="submit"/> 
+</pre>   			 
  </fieldset>
 </form>
 <?php 
@@ -183,18 +183,15 @@ else{
 
 <form method="post">
 <fieldset>
- 
-  <pre>
+ <pre>
 <label>Faculty:</label> <select name="faculty" id='faculty' required><option value="">--- Select ---</option>
 <?php
 $connect1= mysqli_connect("localhost", "root", "","login");						
 $list1=mysqli_query($connect1,"select facultyName from facultydb  ;");
 while($row_list1 = mysqli_fetch_assoc($list1)){
-
 ?>
 <option>    <?php echo $row_list1['facultyName']; ?>  </option>
 <?php
-
 }?>
 </select>
 
@@ -217,8 +214,7 @@ while($row_list = mysqli_fetch_assoc($list)){
 
 <input type="submit" name="submit1" class="btn btn-primary" value="submit"/> 
 
-
-  </pre>   			 
+</pre>   			 
             
  </fieldset>
 	</form>

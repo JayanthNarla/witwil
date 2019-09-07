@@ -54,7 +54,7 @@
 
 		
 		
-					<canvas class="constellation" data-color="rgba(175,138,209,0.77)" data-length="120"></canvas>
+					<canvas class="constellation" data-color="rgba(175,138,209,0.77)" data-length="300"></canvas>
 		
 
 					<div class="container text-center">
