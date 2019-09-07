@@ -63,7 +63,7 @@
 		
 			<div class="row h-full align-items-center">
 				<div class="col-12 col-md-4 offset-md-1 text-center text-md-left">
-				<center><h1>WIT & WIL <br/> VNR VJIET</h1></center>
+				<center><h1>WIT & WIL <br/> VNR VJIET COLLEGE</h1></center>
 				<img src="vnr.png" alt="DOCTUS">
 				
 									</div>
