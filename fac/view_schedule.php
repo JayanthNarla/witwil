@@ -68,7 +68,7 @@ include('documentupload.php')?>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../../homepage.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

@@ -44,7 +44,7 @@ if(isset($_POST["email"])){
       //Recipients
       $mail->setFrom($send_mail, 'WIT-WIL');
       $mail->addAddress($emailTo);     // Add a recipient
-      $mail->addReplyTo('no-reply@gmail.com', 'No Reply');
+      $mail->addReplyTo('no-reply@gmail.com', 'No Reply');	
 
       // Content
       $mail->isHTML(true);                                  // Set email format to HTML

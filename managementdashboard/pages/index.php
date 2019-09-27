@@ -1,9 +1,8 @@
 <?php
 session_start();
- 
-?>
-<?php
-			  
+if(!isset($_SESSION['user'])){
+    header("Location: ../../homepage.php");
+}			  
 	$connect = mysqli_connect("localhost", "root", "", "login");
 	
 
@@ -67,13 +66,13 @@ $row_list1pie = mysqli_fetch_assoc($result1);
   
 }
 </style>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 function noBack(){window.history.forward();}
 noBack();
 window.onload=noBack;
 window.onpageshow=function(evt){if(evt.persisted)noBack();}
 window.onunload=function(){void(0);}
-</script>
+</script> -->
 
 
 </head>
@@ -101,7 +100,7 @@ window.onunload=function(){void(0);}
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                          <li><a href="http://10.45.8.185/witnwil/login/managementlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                          <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

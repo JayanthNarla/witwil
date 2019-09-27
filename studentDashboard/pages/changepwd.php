@@ -112,13 +112,13 @@ input[type=submit] {
   content: "✖";
 }
 </style>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 function noBack(){window.history.forward();}
 noBack();
 window.onload=noBack;
 window.onpageshow=function(evt){if(evt.persisted)noBack();}
 window.onunload=function(){void(0);}
-</script>
+</script> -->
 </head>
 
 <body id="grad1">
@@ -146,7 +146,7 @@ window.onunload=function(){void(0);}
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                                                 <li><a href="http://10.45.8.185/witnwil/login/studentlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                                 <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

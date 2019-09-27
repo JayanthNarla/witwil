@@ -37,7 +37,8 @@
 				// check if user is admin or user
 				$logged_in_user = mysqli_fetch_assoc($results);
 				
-				//$_SESSION['user'] = $logged_in_user['facultyName'];
+				// $_SESSION['user'] = $logged_in_user['facultyName'];
+				$_SESSION['user'] = $username;
 				$_SESSION['id']=$username;
 				$_SESSION['success']  = "You are now logged in";
 				header('location:../managementDashboard/pages/index.php');

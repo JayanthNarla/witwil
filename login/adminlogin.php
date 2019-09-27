@@ -1,5 +1,7 @@
 <?php 
-include('adminloginverify.php') ?>
+include('adminloginverify.php') 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
