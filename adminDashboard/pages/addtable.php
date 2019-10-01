@@ -10,7 +10,7 @@ if(isset($_POST["import"]))
  if(in_array($extension, $allowed_extension)) //check selected file extension is present in allowed extension array
  {
   $file = $_FILES["excel"]["tmp_name"]; // getting temporary source of excel file
-  include_once("C:/xampp/htdocs/timetable/PHPExcel-1.8.1/Classes/PHPExcel/IOFactory.php"); // Add PHPExcel Library in this code
+  include_once("../../timetables/PHPExcel-1.8/Classes/PHPExcel/IOFactory.php"); // Add PHPExcel Library in this code
   $objPHPExcel = PHPExcel_IOFactory::load($file); // create object of PHPExcel library by using load() method and in load method define path of selected file
 
   $output .= "<label class='text-success'>Data Inserted</label><br /><table class='table table-bordered'>";
