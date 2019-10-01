@@ -2,30 +2,9 @@
 session_start();
 if(!isset($_SESSION['user'])){
     header("Location: ../../homepage.php");
-}			  
-	$connect = mysqli_connect("localhost", "root", "", "login");
-	
-$totdeptVals = array();
-$sql1="SELECT DISTINCT COUNT(subject) as tat FROM ttinfo WHERE day=DAYNAME(CURDATE());";
-$sql2="SELECT DISTINCT COUNT(subject) as tat1 FROM presentation where date= cast(NOW()as date)" ;
-$sql3="SELECT DISTINCT COUNT(subject) as tat2 FROM ttinfo WHERE day=DAYNAME(CURDATE()) group by dept;";
-$sql4="SELECT DISTINCT COUNT(subject) as tat1 FROM presentation where date=cast(NOW()as date) group by MID()";
-$result = mysqli_query($connect,$sql1);
-$result1 = mysqli_query($connect,$sql2);
-$result3 = mysqli_query($connect,$sql3);
-if ($result3) {
-    while($row = mysqli_fetch_array($result3)) {
-      // do something with the $row
-        array_push($totdeptVals,$row[0]);
-        echo "<script>console.log(".json_encode($row).")</script>";
-    }
-
 }
-echo "<script>console.log(".json_encode($totdeptVals).")</script>";
-$row_listpie = mysqli_fetch_assoc($result);
-$row_list1pie = mysqli_fetch_assoc($result1);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,6 +56,7 @@ $row_list1pie = mysqli_fetch_assoc($result1);
   
 }
 </style>
+
 <!-- <script type="text/javascript">
 function noBack(){window.history.forward();}
 noBack();
@@ -84,8 +64,6 @@ window.onload=noBack;
 window.onpageshow=function(evt){if(evt.persisted)noBack();}
 window.onunload=function(){void(0);}
 </script> -->
-
-
 </head>
 <body id="grad1">
 <div id="wrapper" >
@@ -111,7 +89,7 @@ window.onunload=function(){void(0);}
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                          <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                         <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -240,77 +218,226 @@ window.onunload=function(){void(0);}
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+		</div>
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
-                </div>  
-				</div> 
-       <fieldset>
-        <legend>B.Tech Academic Calendars(2018-2019)</legend>
-		
-	  <a href="cal.pdf">I Btech Acadamic Calender 2018-19</a><br>
-       <a href="cal1.pdf">II,III & IV Btech Acadamic Calender 2018-19</a>
-	  </fieldset>
-	 
-
+                    <h1 class="page-header">ECE Reports</h1>
+                </div>
+           
+            </div>
+ 
+<br>
+ 
+ 
 <?php
-$sub=$row_listpie['tat']-$row_list1pie['tat1'];
+
+if(isset($_POST['submit']))
+{
+$sdate = $_POST["sdate"] ;
+$edate =  $_POST["edate"] ;
+
+}
 ?>
+          <?php
+                
+		  if(isset($_POST['submit']))	  
+		  {			  
+		    include "connection.php" ?>
+			Submission Between <?php echo $sdate;?> and  <?php echo $edate;?> <br><br>
+		<table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th width="60px"> No</th>
+				  <th>Faculty Id</th>
+				  <th>Faculty Name</th>
+                  <th>Subject</th>
+                  <th>File</th>
+             
+                </tr>
+              </thead>
+              <tbody>
+			
+			  <?php
+			  
+	$con = mysqli_connect('localhost','root',''); 
+	
+	mysqli_select_db($con,'login'); 
 
+			    $no=1;
+				$result = mysqli_query($con,"SELECT * FROM presentation WHERE date BETWEEN '$sdate' AND '$edate' and fid LIKE '%ECE%';");
+							
+				while($data = mysqli_fetch_object($result) ):
+			  ?>
+                <tr>
+				  <td><?php echo $no;?></td>
+                  <td><?php echo $data->fid ?></td>
+				  <?php
+				  		  
+				  $variable=$data->fid; 
+				  $result2 = mysqli_query($con,"SELECT * FROM facultydb WHERE facultyId='".$variable."';");
+				  $data2= mysqli_fetch_object($result2);
+				  
+				  
+				  ?>
+				  <td><?php echo $data2->facultyName ?></td>
+                  <td><?php echo $data->subject?></td>
+				  <td> <a href="../../facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
+				  
+                </tr>
+			  <?php
+				$no++;
+				endwhile;
+				
+			  ?>
+              </tbody>
+		</table>
+		<?php }  ?>
+		  
+		  
+<form method="post">
+ <pre>
+
+<label>year : </label>  <select name="year" id="year" required><option value="">--- Select ---</option>
 <?php
-
 $connect = mysqli_connect("localhost", "root", "", "login");
-						
- $h="SELECT * FROM holidays WHERE date= cast(NOW()as date);" ;
+$list=mysqli_query($connect,"select distinct(year) from ttinfo where dept ='ECE';");
 
-
-$r = mysqli_query($connect,$h);
-$hldy= mysqli_fetch_assoc($r);
-if(!empty($hldy)){
-?>  <p><font size="6" color="red">No Classes Today due to <?php echo $hldy['reason']; ?> </font></p><?php
-
-}
-
-else{
+while($row_list = mysqli_fetch_assoc($list)){
 
 ?>
 
-<div id="piechart"></div>
+<option><?php echo $row_list['year']; ?>  </option>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<script type="text/javascript">
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Task', 'Hours per Day'],
-  ['submitted', <?php echo $row_list1pie['tat1'];  ?>],
-  ['Not submitted', <?php echo $sub;?>],
-  
-]);
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {'title':'Todays WIT Submissions', 'width':550, 'height':400};
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-}
-</script>
-
- </div>
 <?php } ?>
-     
+ </select>   <label> Section : </label>  <select name="sec" id="sec" required><option value="">--- Select ---</option>
+<?php
+
+$list1=mysqli_query($connect,"select distinct(sec) from ttinfo where dept ='ECE' ;");
+
+while($row_list1 = mysqli_fetch_assoc($list1)){
+
+?>
+
+<option><?php echo $row_list1['sec']; ?>  </option>
+
+
+<?php } ?>
+ </select>     <input type="submit" name="yearb" class="btn btn-primary" value="select" />  
+</pre>
+</form>
+<br>
+<?php
+if (isset($_POST['yearb'])) 
+{ 
+$_SESSION['year']=$_POST['year'];
+$_SESSION['sec']=$_POST['sec'];
+?>
+<form method="post">
+<fieldset>
+  
+  <pre>
+ 
+Subject    : <select name="new" id="new" required>
+<option value="">--- Select ---</option>
+<?php
+$list=mysqli_query($connect,"select distinct(subject) from ttinfo where year ='".$_SESSION['year']."' and sec='".$_SESSION['sec']. "'  and dept='ECE'");
+while($row_list = mysqli_fetch_assoc($list)){
+?>
+<option> <?php echo $row_list['subject']; ?>       </option>
+<?php } ?>
+    </select>  <input type="submit" name="display" class="btn btn-primary" value="Display" />  
+<?php } ?>
+</pre>
+
+   </form >  
+
+
+   
+<?php
+                
+		  if(isset($_POST['display']))
+{
+           $sub = $_POST["new"] ;
+           $_SESSION['sub'] = $sub;
+        //    echo "<script>console.log(".json_encode($_SESSION['sub']).")</script>";
+		     ?>
+			 
+			 
+			 
+			 
+			   <label>year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
+			  <label>sec &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;       : </label>  <?php echo $_SESSION['sec']; ?><br>
+			  <label>subject    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;          : </label>  <?php echo $_POST['new']; ?><br>
+			 
+		<table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th width="60px"> No</th>
+				  <th>Faculty Id</th>
+				  <th>Faculty Name</th>
+                  <th>Subject</th>
+                  <th>File</th>
+             
+                </tr>
+              </thead>
+              <tbody>
+			
+			  <?php
+			  
+	$con = mysqli_connect('localhost','root',''); 
+	
+	mysqli_select_db($con,'login'); 
+
+			    $no=1;
+			    $r_fid= mysqli_query($con,"SELECT faculty_id FROM ttinfo WHERE subject='".$_POST['new']."' and year= '".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and dept='ECE' limit 1;");
+				$data2 = mysqli_fetch_assoc($r_fid);
+                // echo "<script>console.log(".json_encode($data2).")</script>";
+				$result = mysqli_query($con,"SELECT * FROM presentation WHERE  fid='".$data2['faculty_id']."' and subject like '{$sub}%'  ;");
+                while($data = mysqli_fetch_object($result) ):
+                    // echo "<script>console.log(".json_encode($data).")</script>";
+			  ?>
+                <tr>
+				  <td><?php echo $no;?></td>
+                  <td><?php echo $data->fid ?></td>
+				  <?php
+				  		  
+				  $variable=$data->fid; 
+				  $result2 = mysqli_query($con,"SELECT * FROM facultydb WHERE facultyId='".$variable."';");
+				  $data2= mysqli_fetch_object($result2);
+				  
+				  
+				  ?>
+				  <td><?php echo $data2->facultyName ?></td>
+                  <td><?php echo $data->subject?></td>
+				  <td> <a href="../../facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
+				  
+                </tr>
+			  <?php
+				$no++;
+				endwhile;
+				
+			  ?>
+              </tbody>
+		</table>
+        <?php }  ?>
+        <form method="post">
+ <fieldset>
+ 
+  <pre>
+Start date : <input type="date" name="sdate" id="sdate">  End date : <input type="date" name="edate" id="edate">   <input type="submit" name="submit" class="btn btn-primary" value="Search" />
+ </fieldset>
+ 
+  </pre>
+</form> 
+         </div>
+         
          
         <!-- /#page-wrapper -->
 
-    </div>
+    
     <!-- /#wrapper -->
 
     <!-- jQuery -->

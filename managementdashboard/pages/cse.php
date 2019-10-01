@@ -106,87 +106,113 @@ window.onunload=function(){void(0);}
                             <a href="index.php"><i class="fa fa-user fa-fw"></i> <font color="black">Dashboard</a></font>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Faculty<span class="fa arrow"></span></a></font>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Computer Science & Engineering<span class="fa arrow"></span></a></font>
                         
-                             <ul  class="nav nav-second-level">
+                            <ul  class="nav nav-second-level">
                                 <li>
-                                    <a href="#"> <font color="black">Civil Engineering</a></font>
-									
-									
+                                    <a href="cse.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electrical & Electronics Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Mechanical Engineering</a></font>
-									
+                                    <a href="scse.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Civil Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="ce.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electronics and Communication Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="cse.php"><font color="black">Computer Science & Engineering</a></font>
-									
+                                    <a href="sce.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Electrical & Electronics Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="eee.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electronics & Instrumentation Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Information Technology</a></font>
-									
+                                    <a href="seee.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Mechanical Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="me.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Automobile Engineering</a></font>
-									
-                                </li>
-                                
+                                    <a href="sme.php"><font color="black">Student</a></font>
+                                </li>         
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Students<span class="fa arrow"></span></a></font>
-                             <ul  class="nav nav-second-level">
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Electronics and Communication Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
                                 <li>
-                                    <a href="#"> <font color="black">Civil Engineering</a></font>
-									
-									
-                                </li>
-                                <li>
-                                    <a href="#"><font color="black">Electrical & Electronics Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Mechanical Engineering</a></font>
-									
+                                    <a href="ece.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electronics and Communication Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="scse.php"><font color="black">Computer Science & Engineering</a></font>
-									
-                                </li>
-                                <li>
-                                    <a href="#"><font color="black">Electronics & Instrumentation Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Information Technology</a></font>
-									
-                                </li>
-                                <li>
-                                    <a href="#"><font color="black">Automobile Engineering</a></font>
-									
-                                </li>
-                                
+                                    <a href="sece.php"><font color="black">Student</a></font>
+                                </li>         
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                       
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Electronics & Instrumentation Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="eie.php"> <font color="black">Faculty</a></font>
+                                </li>
+                                <li>
+                                    <a href="seie.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Information Technology<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="it.php"> <font color="black">Faculty</a></font>
+                                </li>
+                                <li>
+                                    <a href="sit.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Automobile Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="ae.php"> <font color="black">Faculty</a></font>
+                                </li>
+                                <li>
+                                    <a href="sae.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -202,31 +228,7 @@ window.onunload=function(){void(0);}
                 </div>
            
             </div>
-			
-
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
- <form method="post">
- <fieldset>
  
-  <pre>
-Start date : <input type="date" name="sdate" id="sdate">  End date : <input type="date" name="edate" id="edate">   <input type="submit" name="submit" class="btn btn-primary" value="Search" />
- </fieldset>
- 
-  </pre>
-</form>
 <br>
  
  
@@ -239,10 +241,6 @@ $edate =  $_POST["edate"] ;
 
 }
 ?>
-
-
-
-
           <?php
                 
 		  if(isset($_POST['submit']))	  
@@ -286,7 +284,7 @@ $edate =  $_POST["edate"] ;
 				  ?>
 				  <td><?php echo $data2->facultyName ?></td>
                   <td><?php echo $data->subject?></td>
-				  <td> <a href="http://10.45.8.185/witnwil/facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
+				  <td> <a href="../../facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
 				  
                 </tr>
 			  <?php
@@ -356,19 +354,16 @@ while($row_list = mysqli_fetch_assoc($list)){
 </pre>
 
    </form >  
+
+
    
-   
-   
-     
-		  
-		  
-		  
-		  
-		     <?php
+<?php
                 
 		  if(isset($_POST['display']))
 {
-		   $sub = $_POST["new"] ;
+           $sub = $_POST["new"] ;
+           $_SESSION['sub'] = $sub;
+        //    echo "<script>console.log(".json_encode($_SESSION['sub']).")</script>";
 		     ?>
 			 
 			 
@@ -400,9 +395,10 @@ while($row_list = mysqli_fetch_assoc($list)){
 			    $no=1;
 			    $r_fid= mysqli_query($con,"SELECT faculty_id FROM ttinfo WHERE subject='".$_POST['new']."' and year= '".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and dept='CSE' limit 1;");
 				$data2 = mysqli_fetch_assoc($r_fid);
-				
+                // echo "<script>console.log(".json_encode($data2).")</script>";
 				$result = mysqli_query($con,"SELECT * FROM presentation WHERE  fid='".$data2['faculty_id']."' and subject like '{$sub}%'  ;");
-				while($data = mysqli_fetch_object($result) ):
+                while($data = mysqli_fetch_object($result) ):
+                    // echo "<script>console.log(".json_encode($data).")</script>";
 			  ?>
                 <tr>
 				  <td><?php echo $no;?></td>
@@ -417,7 +413,7 @@ while($row_list = mysqli_fetch_assoc($list)){
 				  ?>
 				  <td><?php echo $data2->facultyName ?></td>
                   <td><?php echo $data->subject?></td>
-				  <td> <a href="http://10.45.8.185/witnwil/facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
+				  <td> <a href="../../facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
 				  
                 </tr>
 			  <?php
@@ -427,17 +423,18 @@ while($row_list = mysqli_fetch_assoc($list)){
 			  ?>
               </tbody>
 		</table>
-		<?php }  ?>
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
+        <?php }  ?>
+        <form method="post">
+ <fieldset>
+ 
+  <pre>
+Start date : <input type="date" name="sdate" id="sdate">  End date : <input type="date" name="edate" id="edate">   <input type="submit" name="submit" class="btn btn-primary" value="Search" />
+ </fieldset>
+ 
+  </pre>
+</form> 
          </div>
+         
          
         <!-- /#page-wrapper -->
 

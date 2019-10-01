@@ -32,6 +32,8 @@ if(isset($_POST["import"]))
 	$hour=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(9, $row)->getValue()));	
 	$query = "INSERT INTO ttinfo(dept,academic_year,year,sem,sec,day,no_of_hours,subject,faculty_id,hour) VALUES ('".$dept."', '".$academic_year."','".$year."', '".$sem."','".$sec."', '".$day."','".$no_of_hours."', '".$subject."','".$faculty_id."','".$hour."')";
     mysqli_query($connect, $query);
+    $query2 = "INSERT INTO subdep(subject,dept) VALUES ('".$subject."', '".$dept."')";
+    mysqli_query($connect, $query2);
     $output .= '<td>'.$dept.'</td>';
     $output .= '<td>'.$academic_year.'</td>';
 	$output .= '<td>'.$year.'</td>';

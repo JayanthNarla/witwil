@@ -110,87 +110,112 @@ window.onunload=function(){void(0);}
                             <a href="index.php"><i class="fa fa-user fa-fw"></i> <font color="black">Dashboard</a></font>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Faculty<span class="fa arrow"></span></a></font>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Computer Science & Engineering<span class="fa arrow"></span></a></font>
                         
-                             <ul  class="nav nav-second-level">
+                            <ul  class="nav nav-second-level">
                                 <li>
-                                    <a href="#"> <font color="black">Civil Engineering</a></font>
-									
-									
+                                    <a href="cse.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electrical & Electronics Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Mechanical Engineering</a></font>
-									
+                                    <a href="scse.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Civil Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="ce.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electronics and Communication Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="cse.php"><font color="black">Computer Science & Engineering</a></font>
-									
+                                    <a href="sce.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Electrical & Electronics Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="eee.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electronics & Instrumentation Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Information Technology</a></font>
-									
+                                    <a href="seee.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Mechanical Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="me.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Automobile Engineering</a></font>
-									
-                                </li>
-                                
+                                    <a href="sme.php"><font color="black">Student</a></font>
+                                </li>         
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Students<span class="fa arrow"></span></a></font>
-                             <ul  class="nav nav-second-level">
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Electronics and Communication Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
                                 <li>
-                                    <a href="#"> <font color="black">Civil Engineering</a></font>
-									
-									
-                                </li>
-                                <li>
-                                    <a href="#"><font color="black">Electrical & Electronics Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Mechanical Engineering</a></font>
-									
+                                    <a href="ece.php"> <font color="black">Faculty</a></font>
                                 </li>
                                 <li>
-                                    <a href="#"><font color="black">Electronics and Communication Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Computer Science & Engineering</a></font>
-									
-                                </li>
-                                <li>
-                                    <a href="#"><font color="black">Electronics & Instrumentation Engineering</a></font>
-									
-                                </li>
-								<li>
-                                    <a href="#"><font color="black">Information Technology</a></font>
-									
-                                </li>
-                                <li>
-                                    <a href="#"><font color="black">Automobile Engineering</a></font>
-									
-                                </li>
-                                
+                                    <a href="sece.php"><font color="black">Student</a></font>
+                                </li>         
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                       
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Electronics & Instrumentation Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="eie.php"> <font color="black">Faculty</a></font>
+                                </li>
+                                <li>
+                                    <a href="seie.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Information Technology<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="it.php"> <font color="black">Faculty</a></font>
+                                </li>
+                                <li>
+                                    <a href="sit.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <font color="black">Automobile Engineering<span class="fa arrow"></span></a></font>
+                        
+                            <ul  class="nav nav-second-level">
+                                <li>
+                                    <a href="ae.php"> <font color="black">Faculty</a></font>
+                                </li>
+                                <li>
+                                    <a href="sae.php"><font color="black">Student</a></font>
+                                </li>         
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
