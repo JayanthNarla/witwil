@@ -216,6 +216,10 @@ window.onunload=function(){void(0);}
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="deleterep.php"><i class="fa fa-trash" aria-hidden="true"></i> <font color="black">Delete All Reports</a></font>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

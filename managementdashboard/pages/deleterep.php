@@ -2,14 +2,54 @@
 session_start();
 if(!isset($_SESSION['user'])){
     header("Location: ../../homepage.php");
+}			  
+	$connect = mysqli_connect("localhost", "root", "", "login");
+	
+$totdeptVals = array(); 
+$subdeptVals=array();
+$sql1="SELECT DISTINCT COUNT(subject) as tat FROM ttinfo WHERE day=DAYNAME(CURDATE());";
+$sql2="SELECT DISTINCT COUNT(subject) as tat1 FROM presentation where date= cast(NOW()as date)" ;
+$sql3="SELECT DISTINCT COUNT(subject) as tat2 FROM ttinfo WHERE day=DAYNAME(CURDATE()) group by dept;";
+$sql4="SELECT DISTINCT count(subject) as tat3, fid FROM presentation where date= cast(NOW()as date) group by MID(fid,3,3)";
+$result = mysqli_query($connect,$sql1);
+$result1 = mysqli_query($connect,$sql2);
+$result3 = mysqli_query($connect,$sql3);
+$result4 = mysqli_query($connect,$sql4);
+if ($result3) {
+    while($row = mysqli_fetch_array($result3)) {
+      // do something with the $row
+        array_push($totdeptVals,$row[0]);
+        // echo "<script>console.log(".json_encode($row).")</script>";
+    }
+
 }
+if ($result4) {
+    while($row2 = mysqli_fetch_array($result4)) {
+      // do something with the $row
+        array_push($subdeptVals,$row2["tat3"]);
+        // echo "<script>console.log(".json_encode($subdeptVals).")</script>";
+    }
+}
+
+$ae=$totdeptVals[0]-$subdeptVals[0];
+$cse=$totdeptVals[1]-$subdeptVals[1];
+$ece=$totdeptVals[2]-$subdeptVals[2];
+$eee=$totdeptVals[3]-$subdeptVals[3];
+$eie=$totdeptVals[4]-$subdeptVals[4];
+// $hss=$totdeptVals[5]-$subdeptVals[6];
+$it=$totdeptVals[5]-$subdeptVals[5];
+
+
+echo "<script>console.log('subdev')</script>";
+echo "<script>console.log(".json_encode($subdeptVals).")</script>";
+echo "<script>console.log('totdev')</script>";
+echo "<script>console.log(".json_encode($totdeptVals).")</script>";
+// echo "<script>console.log(".json_encode($ae).")</script>";echo "<script>console.log(".json_encode($cse).")</script>";echo "<script>console.log(".json_encode($eee).")</script>";echo "<script>console.log(".json_encode($ece).")</script>";echo "<script>console.log(".json_encode($eie).")</script>";echo "<script>console.log(".json_encode($it).")</script>";
+// echo "<script>console.log(".json_encode($totdeptVals).")</script>";
+$row_listpie = mysqli_fetch_assoc($result);
+$row_list1pie = mysqli_fetch_assoc($result1);
+
 ?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,6 +100,12 @@ if(!isset($_SESSION['user'])){
   background-color:#dc2430; /* For browsers that do not support gradients */
   
 }
+
+.nodel a,.nodel a:link,.nodel a:visited ,.nodel a:active   {
+	text-decoration: none;
+	color: white;
+}
+
 </style>
 <!-- <script type="text/javascript">
 function noBack(){window.history.forward();}
@@ -68,6 +114,8 @@ window.onload=noBack;
 window.onpageshow=function(evt){if(evt.persisted)noBack();}
 window.onunload=function(){void(0);}
 </script> -->
+
+
 </head>
 <body id="grad1">
 <div id="wrapper" >
@@ -93,7 +141,7 @@ window.onunload=function(){void(0);}
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                           <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                          <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -230,192 +278,39 @@ window.onunload=function(){void(0);}
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Mechanical Engineering Reports</h1>
-                </div>
-           
-            </div>
- <form method="post">
- <pre>
-
-<label>year : </label>  <select name="year" id="year" required><option value="">--- Select ---</option>
-<?php
-$connect = mysqli_connect("localhost", "root", "", "login");
-$list=mysqli_query($connect,"select distinct(year) from ttinfo where dept ='ME';");
-
-while($row_list = mysqli_fetch_assoc($list)){
-
-?>
-
-<option><?php echo $row_list['year']; ?>  </option>
+                    <h1 class="page-header">Delete Reports</h1>
+                </div>  
+				</div> 
 
 
-<?php } ?>
- </select>   <label> Section : </label>  <select name="sec" id="sec" required><option value="">--- Select ---</option>
-<?php
 
-$list1=mysqli_query($connect,"select distinct(sec) from ttinfo where dept ='ME';");
+        <center><form method="post">
+<pre>
 
-while($row_list1 = mysqli_fetch_assoc($list1)){
-
-?>
-
-<option><?php echo $row_list1['sec']; ?>  </option>
-
-
-<?php } ?>
- </select>     <input type="submit" name="yearb" class="btn btn-primary" value="select" />  
+<label style="font-size:20px" class="mb-5">Are you sure you want to delete all WIT Reports?</label>
+<div style="display:flex; justify-content:space-evenly">
+<input style="font-size:20px" type="submit" name="delete" class="btn btn-primary mb-10" value="Yes" />
+<button style="font-size:20px" name="noDel" class="btn btn-primary mb-10 nodel" value="No" ><a href="index.php"> No </a> </button>  
+</div>
 </pre>
 </form>
+</center>
 <br>
 <?php
-if (isset($_POST['yearb'])) 
-{ 
-$_SESSION['year']=$_POST['year'];
-$_SESSION['sec']=$_POST['sec'];
-?>
-<form method="post">
-<fieldset>
+if (isset($_POST['delete'])) 
+{
+  $connect = mysqli_connect("localhost", "root", "", "login");
+  $list=mysqli_query($connect,"delete from presentation");
+  ?>
+  <script> alert("reports deleted succesfully! You are being redirected")</script>
   
-  <pre>
- 
-Subject    : <select name="new" id="new" required>
-<option value="">--- Select ---</option>
-<?php
-$list=mysqli_query($connect,"select distinct(subject) from ttinfo where year ='".$_SESSION['year']."' and sec='".$_SESSION['sec']."'");
-while($row_list = mysqli_fetch_assoc($list)){
+  <script> location.replace("./index.php"); </script>
+  <?php
+}
 ?>
-<option> <?php echo $row_list['subject']; ?>       </option>
-<?php } ?>
-    </select>  <input type="submit" name="display" class="btn btn-primary" value="Display" />  
-<?php } ?>
-</pre>
 
-   </form >  
-   
-   
-   
-   
-   <?php
-                
- if(isset($_POST['display']))
-         {
-		   
-		     ?>
-			 
-  	 <table class="table table-bordered">
-              <thead>
-                <tr>
-				   <th></th>
-                   <th>Unit 1</th>
-				   <th>Unit 2</th>
-                   <th>Unit 3</th>
-                   <th>Unit 4</th>
-                   <th>Unit 5</th>
-                </tr>
-              </thead>
-              <tbody>
-			
-			  <?php
-			
 
-				
-				$total="SELECT COUNT(rollno) as tat FROM studentdb WHERE year='".$_SESSION['year']."' and sec='".$_SESSION['sec']."' " ;
-				$uni1="SELECT COUNT(rollno) as tat1 FROM studentdoc where year='".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and  subject='".$_POST['new']."' and unit='UNIT 1'" ;
-				$uni2="SELECT COUNT(rollno) as tat2 FROM studentdoc where year='".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and  subject='".$_POST['new']."' and unit='UNIT 2'" ;
-				$uni3="SELECT COUNT(rollno) as tat3 FROM studentdoc where year='".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and  subject='".$_POST['new']."' and unit='UNIT 3'" ;
-				$uni4="SELECT COUNT(rollno) as tat4 FROM studentdoc where year='".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and  subject='".$_POST['new']."' and unit='UNIT 4'" ;
-				$uni5="SELECT COUNT(rollno) as tat5 FROM studentdoc where year='".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and  subject='".$_POST['new']."' and unit='UNIT 5'" ;
-				
-				$result = mysqli_query($connect,$total);
-				$result1 = mysqli_query($connect,$uni1);
-				$result2 = mysqli_query($connect,$uni2);
-				$result3 = mysqli_query($connect,$uni3);
-				$result4 = mysqli_query($connect,$uni4);
-				$result5 = mysqli_query($connect,$uni5);
-				$total = mysqli_fetch_assoc($result);
-				$unit1 = mysqli_fetch_assoc($result1);
-				$unit2 = mysqli_fetch_assoc($result2);
-				$unit3 = mysqli_fetch_assoc($result3);
-				$unit4 = mysqli_fetch_assoc($result4);
-				$unit5 = mysqli_fetch_assoc($result5);
-				
-				
-					
-			  ?>
-			  
-			  
-			 
-			  <label>year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
-			  <label>sec &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;       : </label>  <?php echo $_SESSION['sec']; ?><br>
-			  <label>subject    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;          : </label>  <?php echo $_POST['new']; ?><br>
-			  <label>Total no of students  &nbsp;:</label>  	<?php echo $total['tat']; ?>
-			  
-			  <br>
-                <tr>
-				  <td>Submitted</td>
-				  <td><?php echo $unit1['tat1']?></td>
-                  <td><?php echo $unit2['tat2']?></td>
-                  <td><?php echo $unit3['tat3']?></td>
-				  <td> <?php echo $unit4['tat4']?></td>
-				 <td> <?php echo $unit5['tat5']?></td>
-                </tr>
-			  <?php
-				
-				
-				
-			  ?>
-              </tbody>
-		</table>
-			 
-			 
-			 
-			 
-		<table class="table table-bordered">
-              <thead>
-                <tr>
-                  
-				  <th>Roll no</th>
-                  <th>Subject</th>
-                  <th>File</th>
-             
-                </tr>
-              </thead>
-              <tbody>
-			
-			  <?php
-			
-
-			    $no=1;
-				$result = mysqli_query($connect,"SELECT * FROM studentdoc WHERE subject='".$_POST['new']."' and year='".$_SESSION['year']."' and sec='".$_SESSION['sec']."' ");
-				while($data = mysqli_fetch_object($result) ):
-			  ?>
-                <tr>
-				  
-                  <td><?php echo $data->rollno?></td>
-                  <td><?php echo $data->subject?></td>
-				  <td> <a href="http://10.45.8.185/witnwil/facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
-				  
-                </tr>
-			  <?php
-				
-				endwhile;
-				
-			  ?>
-              </tbody>
-		</table>
-		<?php }  ?>
-		  
-		     
-			 
-			 
-			 
-			 
-			 
-			 
-         </div>
-         
-        <!-- /#page-wrapper -->
-
+    <!-- </div> -->
     </div>
     <!-- /#wrapper -->
 
