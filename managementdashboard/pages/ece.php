@@ -367,7 +367,17 @@ while($row_list = mysqli_fetch_assoc($list)){
 			 
 			 
 			 
+			 <?php 
+            $con = mysqli_connect('localhost','root',''); 
+	
+            mysqli_select_db($con,'login');
+            $ef = mysqli_query($con,"SELECT * FROM endorsement WHERE subject like '{$sub}%'  ;");
+            $endorseFile=mysqli_fetch_object($ef);
+            echo "<script>console.log(".json_encode($endorseFile->file).")</script>";
+            ?>
 			 
+			 <button class="btn btn-primary endorse"><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>">View Endorsment</a></button>
+			   <br>
 			   <label>year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
 			  <label>sec &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;       : </label>  <?php echo $_SESSION['sec']; ?><br>
 			  <label>subject    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;          : </label>  <?php echo $_POST['new']; ?><br>

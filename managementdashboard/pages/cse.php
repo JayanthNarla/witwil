@@ -55,6 +55,13 @@ if(!isset($_SESSION['user'])){
   background-color:#dc2430; /* For browsers that do not support gradients */
   
 }
+
+.endorse a,.endorse a:link,.endorse a:visited ,.endorse a:active   {
+	text-decoration: none;
+	color: white;
+}
+
+
 </style>
 
 <!-- <script type="text/javascript">
@@ -284,7 +291,7 @@ $edate =  $_POST["edate"] ;
 				  ?>
 				  <td><?php echo $data2->facultyName ?></td>
                   <td><?php echo $data->subject?></td>
-				  <td> <a href="../../facultyDashboard/pages/uploads/<?php echo $data->file?>" target="new"> <?php echo $data->file ?> </a> </td>
+				  <td> <a href="../../facultyDashboard/pages/uploads/<?php echo $data->file?>"> <?php echo $data->file ?> </a> </td>
 				  
                 </tr>
 			  <?php
@@ -364,12 +371,19 @@ while($row_list = mysqli_fetch_assoc($list)){
            $sub = $_POST["new"] ;
            $_SESSION['sub'] = $sub;
         //    echo "<script>console.log(".json_encode($_SESSION['sub']).")</script>";
-		     ?>
+		?>
+			
+            <?php 
+            $con = mysqli_connect('localhost','root',''); 
+	
+            mysqli_select_db($con,'login');
+            $ef = mysqli_query($con,"SELECT * FROM endorsement WHERE subject like '{$sub}%'  ;");
+            $endorseFile=mysqli_fetch_object($ef);
+            echo "<script>console.log(".json_encode($endorseFile->file).")</script>";
+            ?>
 			 
-			 
-			 
-			 
-			   <label>year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
+			 <button class="btn btn-primary endorse"><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>">View Endorsment</a></button>
+			   <br><label >year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
 			  <label>sec &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;       : </label>  <?php echo $_SESSION['sec']; ?><br>
 			  <label>subject    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;          : </label>  <?php echo $_POST['new']; ?><br>
 			 
