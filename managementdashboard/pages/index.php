@@ -9,12 +9,38 @@ $totdeptVals = array();
 $subdeptVals=array();
 $sql1="SELECT DISTINCT COUNT(subject) as tat FROM ttinfo WHERE day=DAYNAME(CURDATE());";
 $sql2="SELECT DISTINCT COUNT(subject) as tat1 FROM presentation where date= cast(NOW()as date)" ;
-$sql3="SELECT DISTINCT COUNT(subject) as tat2 FROM ttinfo WHERE day=DAYNAME(CURDATE()) group by dept;";
-$sql4="SELECT DISTINCT count(subject) as tat3, fid FROM presentation where date= cast(NOW()as date) group by MID(fid,3,3)";
+
 $result = mysqli_query($connect,$sql1);
 $result1 = mysqli_query($connect,$sql2);
+
+
+
+
+
+
+
+// echo "<script>console.log('subdev')</script>";
+// echo "<script>console.log(".json_encode($subdeptVals).")</script>";
+// echo "<script>console.log('totdev')</script>";
+// echo "<script>console.log(".json_encode($totdeptVals).")</script>";
+// echo "<script>console.log(".json_encode($ae).")</script>";echo "<script>console.log(".json_encode($cse).")</script>";echo "<script>console.log(".json_encode($eee).")</script>";echo "<script>console.log(".json_encode($ece).")</script>";echo "<script>console.log(".json_encode($eie).")</script>";echo "<script>console.log(".json_encode($it).")</script>";
+// echo "<script>console.log(".json_encode($totdeptVals).")</script>";
+$row_listpie = mysqli_fetch_assoc($result);
+$row_list1pie = mysqli_fetch_assoc($result1);
+echo "<script>console.log(".json_encode($row_list1pie['tat1']).")</script>";
+if($row_list1pie['tat1']==0){
+        ?>
+    <script>
+    document.getElementById('bargraphs').style.display='none';
+    </script>
+    <?php
+} else{
+    $sql3="SELECT DISTINCT COUNT(subject) as tat2 FROM ttinfo WHERE day=DAYNAME(CURDATE()) group by dept;";
+$sql4="SELECT DISTINCT count(subject) as tat3, fid FROM presentation where date= cast(NOW()as date) group by MID(fid,3,3)";
+
 $result3 = mysqli_query($connect,$sql3);
 $result4 = mysqli_query($connect,$sql4);
+
 if ($result3) {
     while($row = mysqli_fetch_array($result3)) {
       // do something with the $row
@@ -38,17 +64,7 @@ $eee=$totdeptVals[3]-$subdeptVals[3];
 $eie=$totdeptVals[4]-$subdeptVals[4];
 // $hss=$totdeptVals[5]-$subdeptVals[6];
 $it=$totdeptVals[5]-$subdeptVals[5];
-
-
-echo "<script>console.log('subdev')</script>";
-echo "<script>console.log(".json_encode($subdeptVals).")</script>";
-echo "<script>console.log('totdev')</script>";
-echo "<script>console.log(".json_encode($totdeptVals).")</script>";
-// echo "<script>console.log(".json_encode($ae).")</script>";echo "<script>console.log(".json_encode($cse).")</script>";echo "<script>console.log(".json_encode($eee).")</script>";echo "<script>console.log(".json_encode($ece).")</script>";echo "<script>console.log(".json_encode($eie).")</script>";echo "<script>console.log(".json_encode($it).")</script>";
-// echo "<script>console.log(".json_encode($totdeptVals).")</script>";
-$row_listpie = mysqli_fetch_assoc($result);
-$row_list1pie = mysqli_fetch_assoc($result1);
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -311,12 +327,15 @@ else{
 
 ?>
 
-<div id="piechart"></div><div id="ae"></div>
+<div id="piechart"></div>
+<div id="bargraphs">
+<div id="ae"></div>
 <div id="cse"></div>
 <div id="ece"></div>
 <div id="eee"></div>
 <div id="eie"></div>
 <div id="it"></div>
+</div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
