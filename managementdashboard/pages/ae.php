@@ -364,10 +364,10 @@ while($row_list = mysqli_fetch_assoc($list)){
            $sub = $_POST["new"] ;
            $_SESSION['sub'] = $sub;
         //    echo "<script>console.log(".json_encode($_SESSION['sub']).")</script>";
-		     ?>
-			 
-			 
-			 <?php 
+		?>
+		
+		
+		<?php 
             $con = mysqli_connect('localhost','root',''); 
 	
             mysqli_select_db($con,'login');
@@ -375,51 +375,51 @@ while($row_list = mysqli_fetch_assoc($list)){
             $endorseFile=mysqli_fetch_object($ef);
             echo "<script>console.log(".json_encode($endorseFile->file).")</script>";
             ?>
-			 
-			 <button class="btn btn-primary endorse"><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>">View Endorsment</a></button>
-			   <br>
-			 
-			   <label>year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
-			  <label>sec &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;       : </label>  <?php echo $_SESSION['sec']; ?><br>
-			  <label>subject    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;          : </label>  <?php echo $_POST['new']; ?><br>
-			 
+		
+		<button class="btn btn-primary endorse"><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>">View Endorsment</a></button>
+		<br>
+		
+		<label>year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
+		<label>sec &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;       : </label>  <?php echo $_SESSION['sec']; ?><br>
+		<label>subject    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;          : </label>  <?php echo $_POST['new']; ?><br>
+		
 		<table class="table table-bordered">
-              <thead>
+            <thead>
                 <tr>
-                  <th width="60px"> No</th>
-				  <th>Faculty Id</th>
-				  <th>Faculty Name</th>
-                  <th>Subject</th>
-                  <th>File</th>
-             
+                <th width="60px"> No</th>
+			<th>Faculty Id</th>
+			<th>Faculty Name</th>
+                <th>Subject</th>
+                <th>File</th>
+            
                 </tr>
-              </thead>
-              <tbody>
+            </thead>
+            <tbody>
 			
-			  <?php
-			  
+			<?php
+			
 	$con = mysqli_connect('localhost','root',''); 
 	
 	mysqli_select_db($con,'login'); 
 
-			    $no=1;
-			    $r_fid= mysqli_query($con,"SELECT faculty_id FROM ttinfo WHERE subject='".$_POST['new']."' and year= '".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and dept='AE' limit 1;");
+			$no=1;
+			$r_fid= mysqli_query($con,"SELECT faculty_id FROM ttinfo WHERE subject='".$_POST['new']."' and year= '".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and dept='AE' limit 1;");
 				$data2 = mysqli_fetch_assoc($r_fid);
                 // echo "<script>console.log(".json_encode($data2).")</script>";
 				$result = mysqli_query($con,"SELECT * FROM presentation WHERE  fid='".$data2['faculty_id']."' and subject like '{$sub}%'  ;");
                 while($data = mysqli_fetch_object($result) ):
                     // echo "<script>console.log(".json_encode($data).")</script>";
-			  ?>
+			?>
                 <tr>
-				  <td><?php echo $no;?></td>
-                  <td><?php echo $data->fid ?></td>
-				  <?php
-				  		  
-				  $variable=$data->fid; 
+			<td><?php echo $no;?></td>
+            <td><?php echo $data->fid ?></td>
+			<?php
+			
+			$variable=$data->fid; 
 				  $result2 = mysqli_query($con,"SELECT * FROM facultydb WHERE facultyId='".$variable."';");
-				  $data2= mysqli_fetch_object($result2);
-				  
-				  
+				$data2= mysqli_fetch_object($result2);
+				
+				
 				  ?>
 				  <td><?php echo $data2->facultyName ?></td>
                   <td><?php echo $data->subject?></td>

@@ -5,23 +5,47 @@ if(!isset($_SESSION['user'])){
 }			  
 	$connect = mysqli_connect("localhost", "root", "", "login");
 	
-$totdeptVals = array();
+$totdeptVals = array(); 
+$subdeptVals=array();
 $sql1="SELECT DISTINCT COUNT(subject) as tat FROM ttinfo WHERE day=DAYNAME(CURDATE());";
 $sql2="SELECT DISTINCT COUNT(subject) as tat1 FROM presentation where date= cast(NOW()as date)" ;
 $sql3="SELECT DISTINCT COUNT(subject) as tat2 FROM ttinfo WHERE day=DAYNAME(CURDATE()) group by dept;";
-$sql4="SELECT DISTINCT COUNT(subject) as tat1 FROM presentation where date=cast(NOW()as date) group by MID()";
+$sql4="SELECT DISTINCT count(subject) as tat3, fid FROM presentation where date= cast(NOW()as date) group by MID(fid,3,3)";
 $result = mysqli_query($connect,$sql1);
 $result1 = mysqli_query($connect,$sql2);
 $result3 = mysqli_query($connect,$sql3);
+$result4 = mysqli_query($connect,$sql4);
 if ($result3) {
     while($row = mysqli_fetch_array($result3)) {
       // do something with the $row
         array_push($totdeptVals,$row[0]);
-        echo "<script>console.log(".json_encode($row).")</script>";
+        // echo "<script>console.log(".json_encode($row).")</script>";
     }
 
 }
+if ($result4) {
+    while($row2 = mysqli_fetch_array($result4)) {
+      // do something with the $row
+        array_push($subdeptVals,$row2["tat3"]);
+        // echo "<script>console.log(".json_encode($subdeptVals).")</script>";
+    }
+}
+
+$ae=$totdeptVals[0]-$subdeptVals[0];
+$cse=$totdeptVals[1]-$subdeptVals[1];
+$ece=$totdeptVals[2]-$subdeptVals[2];
+$eee=$totdeptVals[3]-$subdeptVals[3];
+$eie=$totdeptVals[4]-$subdeptVals[4];
+// $hss=$totdeptVals[5]-$subdeptVals[6];
+$it=$totdeptVals[5]-$subdeptVals[5];
+
+
+echo "<script>console.log('subdev')</script>";
+echo "<script>console.log(".json_encode($subdeptVals).")</script>";
+echo "<script>console.log('totdev')</script>";
 echo "<script>console.log(".json_encode($totdeptVals).")</script>";
+// echo "<script>console.log(".json_encode($ae).")</script>";echo "<script>console.log(".json_encode($cse).")</script>";echo "<script>console.log(".json_encode($eee).")</script>";echo "<script>console.log(".json_encode($ece).")</script>";echo "<script>console.log(".json_encode($eie).")</script>";echo "<script>console.log(".json_encode($it).")</script>";
+// echo "<script>console.log(".json_encode($totdeptVals).")</script>";
 $row_listpie = mysqli_fetch_assoc($result);
 $row_list1pie = mysqli_fetch_assoc($result1);
 
@@ -257,13 +281,19 @@ window.onunload=function(){void(0);}
 
 <?php
 $sub=$row_listpie['tat']-$row_list1pie['tat1'];
+
+
+
 ?>
 
 <?php
 
-$connect = mysqli_connect("localhost", "root", "", "login");
-						
- $h="SELECT * FROM holidays WHERE date= cast(NOW()as date);" ;
+
+// $subs=mysqli_fetch_assoc($test);
+
+
+
+$h="SELECT * FROM holidays WHERE date= cast(NOW()as date);" ;
 
 
 $r = mysqli_query($connect,$h);
@@ -277,7 +307,12 @@ else{
 
 ?>
 
-<div id="piechart"></div>
+<div id="piechart"></div><div id="ae"></div>
+<div id="cse"></div>
+<div id="ece"></div>
+<div id="eee"></div>
+<div id="eie"></div>
+<div id="it"></div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -302,6 +337,156 @@ function drawChart() {
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
   chart.draw(data, options);
 }
+</script>
+<script type="text/javascript">
+
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['Submitted', 'Not Submitted'],
+    [ <?php echo $subdeptVals[0] ?>, <?php echo $ae ?>]
+
+]);
+var options = {
+    title: 'Todays WIT Submissions(AE)',
+    legend: { position: 'top', maxLines: 2 },
+    colors: ['#5C3292', '#1A8763'],
+    // interpolateNulls: false,
+};
+
+        var chart = new google.visualization.Histogram(document.getElementById('ae'));
+        chart.draw(data, options);
+      }
+
+// var visualization = new google.visualization.Histogram(container);
+
+</script>
+
+<script type="text/javascript">
+
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['Submitted', 'Not Submitted'],
+    [ <?php echo $subdeptVals[1] ?>, <?php echo $cse ?>]
+
+]);
+var options = {
+    title: 'Todays WIT Submissions(CSE)',
+    legend: { position: 'top', maxLines: 2 },
+    colors: ['#5C3292', '#1A8763'],
+    // interpolateNulls: false,
+};
+
+        var chart = new google.visualization.Histogram(document.getElementById('cse'));
+        chart.draw(data, options);
+      }
+
+// var visualization = new google.visualization.Histogram(container);
+
+</script>
+
+
+<script type="text/javascript">
+
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['Submitted', 'Not Submitted'],
+    [ <?php echo $subdeptVals[2] ?>, <?php echo $ece ?>]
+
+]);
+var options = {
+    title: 'Todays WIT Submissions(ECE)',
+    legend: { position: 'top', maxLines: 2 },
+    colors: ['#5C3292', '#1A8763'],
+    // interpolateNulls: false,
+};
+
+        var chart = new google.visualization.Histogram(document.getElementById('ece'));
+        chart.draw(data, options);
+      }
+
+// var visualization = new google.visualization.Histogram(container);
+
+</script>
+
+<script type="text/javascript">
+
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['Submitted', 'Not Submitted'],
+    [ <?php echo $subdeptVals[3] ?>, <?php echo $eee ?>]
+
+]);
+var options = {
+    title: 'Todays WIT Submissions(EEE)',
+    legend: { position: 'top', maxLines: 2 },
+    colors: ['#5C3292', '#1A8763'],
+    // interpolateNulls: false,
+};
+
+        var chart = new google.visualization.Histogram(document.getElementById('eee'));
+        chart.draw(data, options);
+      }
+
+// var visualization = new google.visualization.Histogram(container);
+
+</script>
+
+<script type="text/javascript">
+
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['Submitted', 'Not Submitted'],
+    [ <?php echo $subdeptVals[4] ?>, <?php echo $eie ?>]
+
+]);
+var options = {
+    title: 'Todays WIT Submissions(EIE)',
+    legend: { position: 'top', maxLines: 2 },
+    colors: ['#5C3292', '#1A8763'],
+    // interpolateNulls: false,
+};
+
+        var chart = new google.visualization.Histogram(document.getElementById('eie'));
+        chart.draw(data, options);
+      }
+
+// var visualization = new google.visualization.Histogram(container);
+
+</script>
+
+<script type="text/javascript">
+
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['Submitted', 'Not Submitted'],
+    [ <?php echo $subdeptVals[5] ?>, <?php echo $it ?>]
+
+]);
+var options = {
+    title: 'Todays WIT Submissions(IT)',
+    legend: { position: 'top', maxLines: 2 },
+    colors: ['#5C3292', '#1A8763'],
+    // interpolateNulls: false,
+};
+
+        var chart = new google.visualization.Histogram(document.getElementById('it'));
+        chart.draw(data, options);
+      }
+
+// var visualization = new google.visualization.Histogram(container);
+
 </script>
 
  </div>
