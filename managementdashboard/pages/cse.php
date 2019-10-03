@@ -311,7 +311,7 @@ $edate =  $_POST["edate"] ;
 <form method="post">
  <pre>
 
-<label>year : </label>  <select name="year" id="year" required><option value="">--- Select ---</option>
+<label>year : </label>  <select name="year" id="year" required><option value=""><?php if(isset($_POST['year'])){ echo $_POST['year']; } else{ echo "---Select---"; } ?></option>
 <?php
 $connect = mysqli_connect("localhost", "root", "", "login");
 $list=mysqli_query($connect,"select distinct(year) from ttinfo where dept ='CSE';");
@@ -324,7 +324,7 @@ while($row_list = mysqli_fetch_assoc($list)){
 
 
 <?php } ?>
- </select>   <label> Section : </label>  <select name="sec" id="sec" required><option value="">--- Select ---</option>
+ </select>   <label> Section : </label>  <select name="sec" id="sec" required><option value=""><?php if(isset($_POST['sec'])){ echo $_POST['sec']; } else{ echo "---Select---"; } ?></option>
 <?php
 
 $list1=mysqli_query($connect,"select distinct(sec) from ttinfo where dept ='CSE' ;");
@@ -353,7 +353,7 @@ $_SESSION['sec']=$_POST['sec'];
   <pre>
  
 Subject    : <select name="new" id="new" required>
-<option value="">--- Select ---</option>
+<option value=""><?php if(isset($_POST['new'])){ echo $_POST['new']; } else{ echo "---Select---"; } ?></option>
 <?php
 $list=mysqli_query($connect,"select distinct(subject) from ttinfo where year ='".$_SESSION['year']."' and sec='".$_SESSION['sec']. "'  and dept='CSE'");
 while($row_list = mysqli_fetch_assoc($list)){
@@ -361,12 +361,12 @@ while($row_list = mysqli_fetch_assoc($list)){
 <option> <?php echo $row_list['subject']; ?>       </option>
 <?php } ?>
     </select>  <input type="submit" name="display" class="btn btn-primary" value="Display" />  
-<?php } ?>
+
 </pre>
 
    </form >  
 
-
+   <?php } ?>
    
 <?php
                 
@@ -375,7 +375,10 @@ while($row_list = mysqli_fetch_assoc($list)){
            $sub = $_POST["new"] ;
            $_SESSION['sub'] = $sub;
         //    echo "<script>console.log(".json_encode($_SESSION['sub']).")</script>";
-		?>
+        // unset($_SESSION["year"]);
+        // unset($_SESSION["sec"]);
+        // unset($_SESSION["sub"]);
+        ?>
 			
             <?php 
             $con = mysqli_connect('localhost','root',''); 
@@ -383,10 +386,15 @@ while($row_list = mysqli_fetch_assoc($list)){
             mysqli_select_db($con,'login');
             $ef = mysqli_query($con,"SELECT * FROM endorsement WHERE subject like '{$sub}%'  ;");
             $endorseFile=mysqli_fetch_object($ef);
-            echo "<script>console.log(".json_encode($endorseFile->file).")</script>";
+            
+            $rowcount=mysqli_num_rows($ef);
+            echo "<script>console.log(".json_encode($rowcount).")</script>";
             ?>
-			 
-			 <button class="btn btn-primary endorse"><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>">View Endorsment</a></button>
+
+            <div id="en">
+            <button class="btn btn-primary endorse" <?php if($rowcount==0){ echo "disabled"; } ?> ><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>"> <?php if($rowcount==0){ echo "No Endorsment submitted yet"; } else {echo "View Endorsment";} ?> </a></button>
+            </div>
+
 			   <br><label >year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
 			  <label>sec &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;       : </label>  <?php echo $_SESSION['sec']; ?><br>
 			  <label>subject    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;          : </label>  <?php echo $_POST['new']; ?><br>

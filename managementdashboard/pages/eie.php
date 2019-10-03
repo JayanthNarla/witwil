@@ -370,16 +370,20 @@ while($row_list = mysqli_fetch_assoc($list)){
 		     ?>
 			 
 			 
-			 <?php 
+             <?php 
             $con = mysqli_connect('localhost','root',''); 
 	
             mysqli_select_db($con,'login');
             $ef = mysqli_query($con,"SELECT * FROM endorsement WHERE subject like '{$sub}%'  ;");
             $endorseFile=mysqli_fetch_object($ef);
-            echo "<script>console.log(".json_encode($endorseFile->file).")</script>";
+            
+            $rowcount=mysqli_num_rows($ef);
+            echo "<script>console.log(".json_encode($rowcount).")</script>";
             ?>
-			 
-			 <button class="btn btn-primary endorse"><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>">View Endorsment</a></button>
+
+            <div id="en">
+            <button class="btn btn-primary endorse" <?php if($rowcount==0){ echo "disabled"; } ?> ><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>"> <?php if($rowcount==0){ echo "No Endorsment submitted yet"; } else {echo "View Endorsment";} ?> </a></button>
+            </div>
 			   <br>
 			 
 			   <label>year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
