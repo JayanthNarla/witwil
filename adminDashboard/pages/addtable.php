@@ -18,7 +18,7 @@ if(isset($_POST["import"]))
   {
    $highestRow = $worksheet->getHighestRow();
    for($row=2; $row<=$highestRow; $row++)
-   {
+   { 
     $output .= "<tr>";
     $dept = trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0, $row)->getValue()));
     $academic_year = trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1, $row)->getValue()));

@@ -10,7 +10,7 @@
 
 	if (isset($_POST['save'])) {
 		$name = $_POST['name'];
-		$date = $_POST['date'];
+		$date = $_POST['date']; 
 
 		mysqli_query($db, "INSERT INTO holidays(reason, date) VALUES ('$name', '$date')"); 
 		 echo "<script>alert('Data Added');window.location.href='http://10.45.8.185/witnwil/adminDashboard/pages/holiday.php';  </script>"; 

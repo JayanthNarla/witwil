@@ -167,15 +167,94 @@ window.onunload=function(){void(0);}
                     <h1 class="page-header">Edit Holidays</h1>
                 </div
                 <!-- /.col-lg-12 -->
+
             </div>
             <!--<div class="header">
 		<h2>Admin - create user</h2>
 	</div>-->
+<?php
+$connect = mysqli_connect("localhost", "root", "", "login");
+$output ="";
+    if(isset($_POST["import"]))
+{
+ $ext = explode(".", $_FILES["excel"]["name"]);
+ $extension	=	end($ext);	// For getting Extension of selected file
+ $allowed_extension = array("xls", "xlsx", "csv"); //allowed extension
+ if(in_array($extension, $allowed_extension)) //check selected file extension is present in allowed extension array
+ {
+  $file = $_FILES["excel"]["tmp_name"]; // getting temporary source of excel file
+  include_once("../../timetables/PHPExcel-1.8/Classes/PHPExcel/IOFactory.php"); // Add PHPExcel Library in this code
+  $objPHPExcel = PHPExcel_IOFactory::load($file); // create object of PHPExcel library by using load() method and in load method define path of selected file
+
+  $output .= "<label class='text-success'>Data Inserted</label><br /><table class='table table-bordered'>";
+  $output .= "<thead><tr><th>Holiday</th><th>Date</th></tr></thead>";
+  foreach ($objPHPExcel->getWorksheetIterator() as $worksheet)
+  {
+   $highestRow = $worksheet->getHighestRow();
+   for($row=2; $row<=$highestRow; $row++)
+   { 
+    
+    $output .= "<tr>";
+    $reason = trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0, $row)->getValue()));
+    $val = trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1, $row)->getValue()));
+    $date = PHPExcel_Style_NumberFormat::toFormattedString($val, "YYYY-M-D");
+    // $dept = trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0, $row)->getValue()));
+    // $academic_year = trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1, $row)->getValue()));
+	// $year=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(2, $row)->getValue()));
+	// $sem=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(3, $row)->getValue()));
+    // $sec=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(4, $row)->getValue()));
+	// $day=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(5, $row)->getValue()));
+	// $no_of_hours=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(6, $row)->getValue()));
+	// $subject=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(7, $row)->getValue()));
+	// $faculty_id=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(8, $row)->getValue()));
+	// $hour=trim(mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(9, $row)->getValue()));	
+	$query = "INSERT INTO holidays(reason,date) VALUES ('".$reason."','".$date."')";
+    mysqli_query($connect, $query);
+    // $query2 = "INSERT INTO subdep(subject,dept) VALUES ('".$subject."', '".$dept."')";
+    // mysqli_query($connect, $query2);
+    $output .= '<td>'.$reason.'</td>';
+    $output .= '<td>'.$date.'</td>';
+	// $output .= '<td>'.$action.'</td>';
+	// $output .= '<td>'.$sem.'</td>';
+	// $output .= '<td>'.$sec.'</td>';
+	// $output .= '<td>'.$day.'</td>';
+	// $output .= '<td>'.$no_of_hours.'</td>';
+	// $output .= '<td>'.$subject.'</td>';
+	// $output .= '<td>'.$faculty_id.'</td>';
+	// $output .= '<td>'.$hour.'</td>';
+    $output .= '</tr>';
+}
+} 
+$output .= '</table>';
+
+}
+else
+{
+  $output = '<label class="text-danger">Invalid File</label>'; //if non excel file then
+}
+}
+?>
 
 <?php $results = mysqli_query($db, "SELECT * FROM holidays"); ?>
 
 
-	<form method="post" action="server.php" >
+<div class="container box">
+
+    <form method="post" enctype="multipart/form-data">
+        
+        <label>Select Holiday Excel File</label>
+        <input type="file" name="excel" />
+        <br />
+        <input type="submit" name="import" class="btn btn-info" value="Import" />
+    </form>
+    <br />
+    <br />
+    <?php
+    echo $output;
+    ?>
+</div>
+
+	<!-- <form method="post" action="server.php" >
 	<input type="hidden" name="id" value="<?php echo $id; ?>">
 		<div class="input-group">
 			<label>reason</label>
@@ -194,8 +273,8 @@ window.onunload=function(){void(0);}
 	<button class="btn" type="submit" name="save" >Save</button>
 <?php endif ?>
 		</div>
-	</form>
-	<form>
+	</form> -->
+	<!-- <form>
 <table>
 	<thead>
 		<tr>
@@ -217,7 +296,7 @@ window.onunload=function(){void(0);}
 			</td>
 		</tr>
 	<?php } ?>
-</table></form>
+</table></!--> 
         </div>
         <!-- /#page-wrapper -->
 

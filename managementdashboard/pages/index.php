@@ -13,12 +13,6 @@ $sql2="SELECT DISTINCT COUNT(subject) as tat1 FROM presentation where date= cast
 $result = mysqli_query($connect,$sql1);
 $result1 = mysqli_query($connect,$sql2);
 
-
-
-
-
-
-
 // echo "<script>console.log('subdev')</script>";
 // echo "<script>console.log(".json_encode($subdeptVals).")</script>";
 // echo "<script>console.log('totdev')</script>";
@@ -35,7 +29,7 @@ if($row_list1pie['tat1']==0){
     </script>
     <?php
 } else{
-    $sql3="SELECT DISTINCT COUNT(subject) as tat2 FROM ttinfo WHERE day=DAYNAME(CURDATE()) group by dept;";
+$sql3="SELECT DISTINCT COUNT(subject) as tat2 FROM ttinfo WHERE day=DAYNAME(CURDATE()) group by dept;";
 $sql4="SELECT DISTINCT count(subject) as tat3, fid FROM presentation where date= cast(NOW()as date) group by MID(fid,3,3)";
 
 $result3 = mysqli_query($connect,$sql3);
@@ -328,13 +322,7 @@ else{
 ?>
 
 <div id="piechart"></div>
-<div id="bargraphs">
-<div id="ae"></div>
-<div id="cse"></div>
-<div id="ece"></div>
-<div id="eee"></div>
-<div id="eie"></div>
-<div id="it"></div>
+<div id="bargraphs" style="width: 900px; height: 500px;">
 </div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -361,158 +349,34 @@ function drawChart() {
   chart.draw(data, options);
 }
 </script>
-<script type="text/javascript">
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
 
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
+      function drawChart() {
         var data = google.visualization.arrayToDataTable([
-    ['Submitted', 'Not Submitted'],
-    [ <?php echo $subdeptVals[0] ?>, <?php echo $ae ?>]
+          ['Dept', 'Submitted', 'Not Submitted'],
+          ['CSE', <?php echo $subdeptVals[1] ?>, <?php echo $cse ?>],
+          ['ECE', <?php echo $subdeptVals[2] ?>, <?php echo $ece ?>],
+          ['EEE', <?php echo $subdeptVals[3] ?>, <?php echo $eee ?>],
+          ['IT', <?php echo $subdeptVals[5] ?>, <?php echo $it ?>],
+          ['AE', <?php echo $subdeptVals[0] ?>, <?php echo $ae ?>],
+          ['EIE', <?php echo $subdeptVals[4] ?>, <?php echo $eie ?>]
+        ]);
+        var options = {
+          chart: {
+            title: 'WIT report Submissions',
+            subtitle: "Today's submission count ",
+          },
+        };
 
-]);
-var options = {
-    title: 'Todays WIT Submissions(AE)',
-    legend: { position: 'top', maxLines: 2 },
-    colors: ['#5C3292', '#1A8763'],
-    // interpolateNulls: false,
-};
+        var chart = new google.charts.Bar(document.getElementById('bargraphs'));
 
-        var chart = new google.visualization.Histogram(document.getElementById('ae'));
-        chart.draw(data, options);
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
+    </script>
 
-// var visualization = new google.visualization.Histogram(container);
-
-</script>
-
-<script type="text/javascript">
-
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-    ['Submitted', 'Not Submitted'],
-    [ <?php echo $subdeptVals[1] ?>, <?php echo $cse ?>]
-
-]);
-var options = {
-    title: 'Todays WIT Submissions(CSE)',
-    legend: { position: 'top', maxLines: 2 },
-    colors: ['#5C3292', '#1A8763'],
-    // interpolateNulls: false,
-};
-
-        var chart = new google.visualization.Histogram(document.getElementById('cse'));
-        chart.draw(data, options);
-      }
-
-// var visualization = new google.visualization.Histogram(container);
-
-</script>
-
-
-<script type="text/javascript">
-
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-    ['Submitted', 'Not Submitted'],
-    [ <?php echo $subdeptVals[2] ?>, <?php echo $ece ?>]
-
-]);
-var options = {
-    title: 'Todays WIT Submissions(ECE)',
-    legend: { position: 'top', maxLines: 2 },
-    colors: ['#5C3292', '#1A8763'],
-    // interpolateNulls: false,
-};
-
-        var chart = new google.visualization.Histogram(document.getElementById('ece'));
-        chart.draw(data, options);
-      }
-
-// var visualization = new google.visualization.Histogram(container);
-
-</script>
-
-<script type="text/javascript">
-
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-    ['Submitted', 'Not Submitted'],
-    [ <?php echo $subdeptVals[3] ?>, <?php echo $eee ?>]
-
-]);
-var options = {
-    title: 'Todays WIT Submissions(EEE)',
-    legend: { position: 'top', maxLines: 2 },
-    colors: ['#5C3292', '#1A8763'],
-    // interpolateNulls: false,
-};
-
-        var chart = new google.visualization.Histogram(document.getElementById('eee'));
-        chart.draw(data, options);
-      }
-
-// var visualization = new google.visualization.Histogram(container);
-
-</script>
-
-<script type="text/javascript">
-
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-    ['Submitted', 'Not Submitted'],
-    [ <?php echo $subdeptVals[4] ?>, <?php echo $eie ?>]
-
-]);
-var options = {
-    title: 'Todays WIT Submissions(EIE)',
-    legend: { position: 'top', maxLines: 2 },
-    colors: ['#5C3292', '#1A8763'],
-    // interpolateNulls: false,
-};
-
-        var chart = new google.visualization.Histogram(document.getElementById('eie'));
-        chart.draw(data, options);
-      }
-
-// var visualization = new google.visualization.Histogram(container);
-
-</script>
-
-<script type="text/javascript">
-
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-    ['Submitted', 'Not Submitted'],
-    [ <?php echo $subdeptVals[5] ?>, <?php echo $it ?>]
-
-]);
-var options = {
-    title: 'Todays WIT Submissions(IT)',
-    legend: { position: 'top', maxLines: 2 },
-    colors: ['#5C3292', '#1A8763'],
-    // interpolateNulls: false,
-};
-
-        var chart = new google.visualization.Histogram(document.getElementById('it'));
-        chart.draw(data, options);
-      }
-
-// var visualization = new google.visualization.Histogram(container);
-
-</script>
-
- </div>
+</div>
 <?php } ?>
      
          
