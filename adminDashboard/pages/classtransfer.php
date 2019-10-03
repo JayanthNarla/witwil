@@ -204,7 +204,7 @@ session_start();
       <input type="password" name="password_2">
     </div> -->
     <div class="input-group">
-      <button type="submit" class="btn" name="replace">Tranfer Class</button>
+      <button type="submit" class="btn" name="replace">Transfer Class</button>
     </div>
 </form>
 
