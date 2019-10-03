@@ -1,5 +1,5 @@
 <?php 
-include('tableremoval.php') ;
+// include('tableremoval.php') ;
 ?>
 
 <!DOCTYPE html>
@@ -38,34 +38,43 @@ include('tableremoval.php') ;
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
-	#grad1 {
+    #grad1 {
 
-  background-color: white; /* For browsers that do not support gradients */
-  
-}
-#grad2 {
+    background-color: white; /* For browsers that do not support gradients */
+    
+  }
+  #grad2 {
 
-  background: linear-gradient(to right,#7b4397 0%,#dc2430 100%); /* For browsers that do not support gradients */
-  
-}
-	#grad3 {
+    background: linear-gradient(to right,#7b4397 0%,#dc2430 100%); /* For browsers that do not support gradients */
+    
+  }
+    #grad3 {
 
-  background-color:#dc2430; /* For browsers that do not support gradients */
-  
-}
+    background-color:#dc2430; /* For browsers that do not support gradients */
+    
+  }
 </style>
-<!-- <script type="text/javascript">
-function noBack(){window.history.forward();}
-noBack();
-window.onload=noBack;
-window.onpageshow=function(evt){if(evt.persisted)noBack();}
-window.onunload=function(){void(0);}
-</script> -->
 </head>
+
+
+<?php 
+session_start();
+	// connect to database
+	$db = mysqli_connect("localhost", "root", "", "login");
+
+	// variable declaration
+	$subject = "";
+	$repfac    = "";
+	// $email="";
+	// $errors   = array();
+	// $suc="";
+  
+  
+?>
 
 <body id="grad1">
 
-   <div id="wrapper" ">
+   <div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="grad2">
@@ -111,25 +120,25 @@ window.onunload=function(){void(0);}
                         <li>
                             <a href="removeuser.php"><i class="fa fa-edit fa-fw"></i><font color="black"> Remove User</a></font>
                         </li>
-						<li>
-                            <a href="addtable.php"><i class="fa fa-edit fa-fw"></i><font color="black"> Update TimeTable</a></font>
-                        </li>
-						<li>
-                            <a href="removetable.php"><i class="fa fa-edit fa-fw"></i><font color="black"> Remove TimeTable</a></font>
-                        </li>
-						<li>
-                            <a href="holiday.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Edit Holidays</a></font>
-                        </li>
-						<li>
-                            <a href="changepassword.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Change password</a></font>
-                        </li>
-                        <li>
-                            <a href="classtransfer.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Class Transfer</a></font>
-                        </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
+              <li>
+                              <a href="addtable.php"><i class="fa fa-edit fa-fw"></i><font color="black"> Update TimeTable</a></font>
+                          </li>
+              <li>
+                              <a href="removetable.php"><i class="fa fa-edit fa-fw"></i><font color="black"> Remove TimeTable</a></font>
+                          </li>
+              <li>
+                              <a href="holiday.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Edit Holidays</a></font>
+                          </li>
+              <li>
+                              <a href="changepassword.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Change password</a></font>
+                          </li>
+                          <li>
+                              <a href="classtransfer.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Class Tranfer</a></font>
+                          </li>
+                              </ul>
+                              <!-- /.nav-second-level -->
+                          </li>
+                      </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
@@ -140,14 +149,66 @@ window.onunload=function(){void(0);}
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Welcome</h1>
+                    <h1 class="page-header">Class Transfer</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!--<div class="header">
 		<h2>Admin - create user</h2>
 	</div>-->
-	
+  <?php
+    if(isset($_POST['replace'])){
+      $query = "select faculty_id,subject from ttinfo where subject='".$_POST['subject']."';";
+      $r=mysqli_fetch_assoc(mysqli_query($db, $query));
+      $ori_facid=$r['faculty_id'];
+      $ori_subject=$r['subject'];
+      $verifyID = "select facultyId from facultydb where facultyId='".$_POST['facid']."'";
+      $verid=mysqli_query($db,$verifyID);
+      $num=mysqli_num_rows($verid);
+      if($ori_subject && $num==1){
+        $update_query="UPDATE ttinfo SET faculty_id='".$_POST['facid']."' where faculty_id='".$ori_facid."'";
+        $res=mysqli_query($db,$update_query);
+        echo "<script>alert('Class transfered Successfully');</script>";
+        } 
+        else if($ori_subject==null){
+          echo "<script>alert('Enter correct subject');</script>";
+        }else{
+          echo "<script>alert('No faculty with that ID present! enter correct ID.');</script>";
+        }        
+      
+      echo "<script>console.log(".json_encode($num).")</script>";
+    }
+  ?>
+  <form method="post">
+<?php // echo display_error(); ?>
+
+    <div class="input-group">
+      <label>Enter Subject: </label>
+      <input type="text" name="subject" value="<?php echo $subject; ?>" required>
+    </div>
+    <div class="input-group">
+      <label>Enter replacement faculty ID: </label>
+      <input type="text" name="facid" value="<?php echo $repfac; ?>" required>
+    </div>
+    <!-- <div class="input-group">
+      <label>Emp Id</label>
+      <input type="text" name="empid" value="<?php echo $empid; ?>">
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" name="password_1">
+    </div>
+    <div class="input-group">
+      <label>Confirm password</label>
+      <input type="password" name="password_2">
+    </div> -->
+    <div class="input-group">
+      <button type="submit" class="btn" name="replace">Tranfer Class</button>
+    </div>
+</form>
+
+
 	
         </div>
         <!-- /#page-wrapper -->

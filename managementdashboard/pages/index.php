@@ -128,11 +128,11 @@ window.onunload=function(){void(0);}
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="grad2">
             
               
-             <a class="navbar-brand" > <strong><font color="white">VNR VJIET- WIT & WIL &nbsp; &nbsp; &nbsp;</strong></font></a>
-          
+            <a class="navbar-brand" > <strong><font color="white">VNR VJIET- WIT & WIL &nbsp; &nbsp; &nbsp;</strong></font></a>
+        
             <!-- /.navbar-header -->
             <a class="navbar-brand" > &nbsp;&nbsp;<font size="" color="white">Welcome  </font>
-           </a> <ul class="nav navbar-top-links navbar-right" id="grad2">
+            </a> <ul class="nav navbar-top-links navbar-right" id="grad2">
 
                 <!-- /.dropdown -->
                 <li class="dropdown" id="grad3">
@@ -145,7 +145,7 @@ window.onunload=function(){void(0);}
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                          <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
