@@ -303,7 +303,7 @@ $edate =  $_POST["edate"] ;
 <form method="post">
  <pre>
 
-<label>year : </label>  <select name="year" id="year" required><option value="">--- Select ---</option>
+<label>year : </label>  <select name="year" id="year" required><option value=""><?php if(isset($_POST['year'])){ echo $_POST['year']; } else{ echo "---Select---"; } ?></option>
 <?php
 $connect = mysqli_connect("localhost", "root", "", "login");
 $list=mysqli_query($connect,"select distinct(year) from ttinfo where dept ='ECE';");
@@ -316,7 +316,7 @@ while($row_list = mysqli_fetch_assoc($list)){
 
 
 <?php } ?>
- </select>   <label> Section : </label>  <select name="sec" id="sec" required><option value="">--- Select ---</option>
+ </select>   <label> Section : </label>  <select name="sec" id="sec" required><option value=""><?php if(isset($_POST['sec'])){ echo $_POST['sec']; } else{ echo "---Select---"; } ?></option>
 <?php
 
 $list1=mysqli_query($connect,"select distinct(sec) from ttinfo where dept ='ECE' ;");
@@ -345,7 +345,7 @@ $_SESSION['sec']=$_POST['sec'];
   <pre>
  
 Subject    : <select name="new" id="new" required>
-<option value="">--- Select ---</option>
+<option value=""><?php if(isset($_POST['new'])){ echo $_POST['new']; } else{ echo "---Select---"; } ?></option>
 <?php
 $list=mysqli_query($connect,"select distinct(subject) from ttinfo where year ='".$_SESSION['year']."' and sec='".$_SESSION['sec']. "'  and dept='ECE'");
 while($row_list = mysqli_fetch_assoc($list)){
