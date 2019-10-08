@@ -12,7 +12,7 @@
 
     $chunksize = 1 * (1024 * 1024); // how many bytes per chunk
     if (filesize($file) > $chunksize) {
-        $handle = fopen($file, 'rb');
+       $handle = fopen($file, 'rb');
         $buffer = '';
 
         while (!feof($handle)) {

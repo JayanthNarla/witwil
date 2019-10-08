@@ -128,11 +128,11 @@ window.onunload=function(){void(0);}
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="grad2">
             
               
-            <a class="navbar-brand" > <strong><font color="white">VNR VJIET- WIT & WIL &nbsp; &nbsp; &nbsp;</strong></font></a>
-        
+             <a class="navbar-brand" > <strong><font color="white">VNR VJIET- WIT & WIL &nbsp; &nbsp; &nbsp;</strong></font></a>
+          
             <!-- /.navbar-header -->
             <a class="navbar-brand" > &nbsp;&nbsp;<font size="" color="white">Welcome  </font>
-            </a> <ul class="nav navbar-top-links navbar-right" id="grad2">
+           </a> <ul class="nav navbar-top-links navbar-right" id="grad2">
 
                 <!-- /.dropdown -->
                 <li class="dropdown" id="grad3">
@@ -140,12 +140,10 @@ window.onunload=function(){void(0);}
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                          <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -286,10 +284,10 @@ window.onunload=function(){void(0);}
                 </div>  
 				</div> 
        <fieldset>
-        <legend>B.Tech Academic Calendars(2018-2019)</legend>
+        <legend>B.Tech Academic Calendars(2019-2020)</legend>
 		
-	  <a href="cal.pdf">I Btech Acadamic Calender 2018-19</a><br>
-       <a href="cal1.pdf">II,III & IV Btech Acadamic Calender 2018-19</a>
+	  <a href="cal.pdf">I Btech Acadamic Calender 2019-20</a><br>
+       <a href="cal1.pdf">II,III & IV Btech Acadamic Calender 2019-20</a>
 	  </fieldset>
 	 
 

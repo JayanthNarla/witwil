@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['user'])){
+    header("Location: ../../homepage.php");
+}	
 $connect = mysqli_connect("localhost", "root", "", "login");
 $output ="";
 if(isset($_POST["import"]))
@@ -116,6 +119,19 @@ window.onload=noBack;
 window.onpageshow=function(evt){if(evt.persisted)noBack();}
 window.onunload=function(){void(0);}
 </script> -->
+
+<script>
+function fileValidator()
+{
+var fileName=document.forms["FileForm"]["excel"].value.replace("C:\\fakepath\\", "");
+var response=confirm("Are you sure to Upload '"+fileName+"'?");
+console.log(response);
+if(response==false)
+{
+  document.forms["FileForm"]["excel"].value="";
+}
+}
+</script>
 </head>
 
 <body id="grad1">
@@ -138,7 +154,7 @@ window.onunload=function(){void(0);}
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="./userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="changepwd.php"><i class="fa fa-gear fa-fw"></i> Change password</a>
                         </li>
@@ -204,7 +220,7 @@ window.onunload=function(){void(0);}
 				<form method="post" enctype="multipart/form-data">
 					
 					<label>Select Excel File</label>
-					<input type="file" name="excel" />
+					<input type="file" name="excel" onchange="fileValidator();"/>
 					<br />
 					<input type="submit" name="import" class="btn btn-info" value="Import" />
 				</form>

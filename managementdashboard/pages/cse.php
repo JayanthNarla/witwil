@@ -91,9 +91,9 @@ window.onunload=function(){void(0);}
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                          <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -253,8 +253,9 @@ $edate =  $_POST["edate"] ;
 }
 ?>
           <?php
+
                 
-		  if(isset($_POST['submit']))	  
+		  if(isset($_POST['submit']) and $sdate!="" and $edate!="")	  
 		  {			  
 		    include "connection.php" ?>
 			Submission Between <?php echo $sdate;?> and  <?php echo $edate;?> <br><br>
@@ -279,7 +280,7 @@ $edate =  $_POST["edate"] ;
 
 			    $no=1;
 				$result = mysqli_query($con,"SELECT * FROM presentation WHERE date BETWEEN '$sdate' AND '$edate' and fid LIKE '%CSE%';");
-							
+				$cnt=0;			
 				while($data = mysqli_fetch_object($result) ):
 			  ?>
                 <tr>
@@ -287,7 +288,8 @@ $edate =  $_POST["edate"] ;
                   <td><?php echo $data->fid ?></td>
 				  <?php
 				  		  
-				  $variable=$data->fid; 
+                  $variable=$data->fid; 
+                  $cnt++;
 				  $result2 = mysqli_query($con,"SELECT * FROM facultydb WHERE facultyId='".$variable."';");
 				  $data2= mysqli_fetch_object($result2);
 				  
@@ -300,12 +302,19 @@ $edate =  $_POST["edate"] ;
                 </tr>
 			  <?php
 				$no++;
-				endwhile;
+                endwhile;
+                
 				
 			  ?>
               </tbody>
 		</table>
-		<?php }  ?>
+        <h4><b><?php if($cnt==0)
+                {
+                    echo "No submissions.";
+                } ?></b></h4>
+        <?php } 
+         ?>
+      
 		  
 		  
 <form method="post">
@@ -392,7 +401,7 @@ while($row_list = mysqli_fetch_assoc($list)){
             ?>
 
             <div id="en">
-            <button class="btn btn-primary endorse" <?php if($rowcount==0){ echo "disabled"; } ?> ><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>"> <?php if($rowcount==0){ echo "No Endorsment submitted yet"; } else {echo "View Endorsment";} ?> </a></button>
+            <button class="btn btn-primary endorse" <?php if($rowcount==0){ echo "disabled"; } ?> ><a href="../../facultyDashboard/pages/uploads/<?php echo $endorseFile->file?>"  > <?php if($rowcount==0){ echo "No Endorsment submitted yet"; } else {echo "View Endorsement";} ?> </a></button>
             </div>
 
 			   <br><label >year &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;: </label>  <?php echo $_SESSION['year']; ?><br>
@@ -409,8 +418,11 @@ while($row_list = mysqli_fetch_assoc($list)){
                   <th>File</th>
              
                 </tr>
+                 
+            
               </thead>
               <tbody>
+              
 			
 			  <?php
 			  
@@ -420,7 +432,8 @@ while($row_list = mysqli_fetch_assoc($list)){
 
 			    $no=1;
 			    $r_fid= mysqli_query($con,"SELECT faculty_id FROM ttinfo WHERE subject='".$_POST['new']."' and year= '".$_SESSION['year']."' and sec='".$_SESSION['sec']."' and dept='CSE' limit 1;");
-				$data2 = mysqli_fetch_assoc($r_fid);
+                $data2 = mysqli_fetch_assoc($r_fid);
+                $cntforendorse=0;
                 // echo "<script>console.log(".json_encode($data2).")</script>";
 				$result = mysqli_query($con,"SELECT * FROM presentation WHERE  fid='".$data2['faculty_id']."' and subject like '{$sub}%'  ;");
                 while($data = mysqli_fetch_object($result) ):
@@ -431,7 +444,8 @@ while($row_list = mysqli_fetch_assoc($list)){
                   <td><?php echo $data->fid ?></td>
 				  <?php
 				  		  
-				  $variable=$data->fid; 
+                  $variable=$data->fid; 
+                  $cntforendorse++;
 				  $result2 = mysqli_query($con,"SELECT * FROM facultydb WHERE facultyId='".$variable."';");
 				  $data2= mysqli_fetch_object($result2);
 				  
@@ -449,12 +463,16 @@ while($row_list = mysqli_fetch_assoc($list)){
 			  ?>
               </tbody>
 		</table>
+        <h4><b><?php if($cntforendorse==0){
+            echo "Hidden Details.";
+        }?></b></h4>
+        
         <?php }  ?>
         <form method="post">
  <fieldset>
  
   <pre>
-Start date : <input type="date" name="sdate" id="sdate">  End date : <input type="date" name="edate" id="edate">   <input type="submit" name="submit" class="btn btn-primary" value="Search" />
+Start date : <input type="date" name="sdate" id="sdate" required>  End date : <input type="date" name="edate" id="edate" required>   <input type="submit" name="submit" class="btn btn-primary" value="Search" />
  </fieldset>
  
   </pre>
