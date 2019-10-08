@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2019 at 06:15 PM
+-- Generation Time: Oct 08, 2019 at 07:07 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -543,6 +543,25 @@ INSERT INTO `presentation` (`id`, `file`, `fid`, `subject`, `date`) VALUES
 (38, 0x74657374696e672e646f63, '15CSE022', '', '2019-07-12'),
 (39, 0x74657374696e672e646f63, '16CSE125', '', '2019-07-12'),
 (40, 0x74657374696e672e646f63, '12MED079', '', '2019-07-12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profimg`
+--
+
+CREATE TABLE `profimg` (
+  `ID` int(255) NOT NULL,
+  `file` blob NOT NULL,
+  `faculty_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `profimg`
+--
+
+INSERT INTO `profimg` (`ID`, `file`, `faculty_id`) VALUES
+(14, 0x50617373706f72745069632e6a7067, '13');
 
 -- --------------------------------------------------------
 
@@ -2758,26 +2777,26 @@ CREATE TABLE `ttinfo` (
 --
 
 INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_of_hours`, `subject`, `faculty_id`, `hour`) VALUES
-('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Thermodynamics', '06MED035', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Thermodynamics', '06MED035', ''),
-('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Automotive chassis', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Thermodynamics', '06MED035', ''),
-('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
-('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Automotive chassis', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Friday', 1, 'Thermodynamics', '06MED035', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Automotive chassis', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
-('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 3, 1, 1, 'Monday', 1, 'Automotive Chassis', '13AMD041', ''),
 ('AE', '2019-2020', 3, 1, 1, 'Monday', 2, 'Open Elective -1', '17AED046', ''),
 ('AE', '2019-2020', 3, 1, 1, 'Monday', 2, 'Open Elective -1', '17AED013', ''),
@@ -3076,8 +3095,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('EIE', '2018-2019', 2, 2, 1, 'Saturday', 1, 'Data Structures through C', '15ITD096', ''),
 ('EIE', '2018-2019', 2, 2, 1, 'Saturday', 1, 'Complex Analysis & Special Functions', '10HSS018', ''),
 ('EIE', '2018-2019', 2, 2, 1, 'Saturday', 1, 'Electronic Measurements', '16EIE118', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('EIE', '2018-2019', 2, 2, 2, 'Monday', 0, 'Electronic Circuits â€“ I', '06EIE010', ''),
 ('EIE', '2018-2019', 2, 2, 2, 'Monday', 0, 'Electronic Measurements', '18EIE007', ''),
 ('EIE', '2018-2019', 2, 2, 2, 'Monday', 0, 'Sensors & Signal Conditioning', '15EIE042', ''),
@@ -3118,8 +3137,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('EIE', '2018-2019', 3, 2, 1, 'Saturday', 1, 'Linear and Digital IC Application', '01EIE008', ''),
 ('EIE', '2018-2019', 3, 2, 1, 'Saturday', 1, 'Industrial Instrumentation', '13EIE054', ''),
 ('EIE', '2018-2019', 3, 2, 1, 'Saturday', 1, 'Bio-Medical Instrumentation', '16EIE060', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('EIE', '2018-2019', 3, 2, 2, 'Monday', 1, 'Computer Organization', '14EIE036', ''),
 ('EIE', '2018-2019', 3, 2, 2, 'Monday', 2, 'Open Elective-1 (Disaster Management,Renewable Energy Technologies, Digital Fabrication, Principles of Electronics & Communications, Object Oriented Programming through JAVA, Cyber Security, Principle', '15CED068,15EE028,16MED132,16ECE113,15ITD050,17CSE0', ''),
 ('EIE', '2018-2019', 3, 2, 2, 'Monday', 1, 'Business Economics and Financial Analysis', '01HSS001', ''),
@@ -3159,8 +3178,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('EIE', '2018-2019', 4, 2, 1, 'Saturday', 1, 'Robotics and Applications', '18EIE012', ''),
 ('EIE', '2018-2019', 4, 2, 1, 'Saturday', 1, 'Analytical Instrumentation', '11EIE004', ''),
 ('EIE', '2018-2019', 4, 2, 1, 'Saturday', 1, 'Elective 1 (Principles and Applications of Nanotechnology,Instrumentation Practices in Industries)', '13EIE031, 14EIE036', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('EIE', '2018-2019', 4, 2, 2, 'Monday', 1, 'Virtual Instrumentation', 'I6EIE008', ''),
 ('EIE', '2018-2019', 4, 2, 2, 'Monday', 1, 'Elective 1 (Principles and Applications of Nanotechnology,Instrumentation Practices in Industries)', '07EIE055, 14EIE036', ''),
 ('EIE', '2018-2019', 4, 2, 2, 'Tuesday', 1, 'Virtual Instrumentation', 'I6EIE008', ''),
@@ -3296,9 +3315,9 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('ECE', '2018-2019', 3, 1, 1, 'Saturday', 1, 'Computer Organization (CO)', '16ECE119', ''),
 ('ECE', '2018-2019', 3, 1, 1, 'Saturday', 1, 'Linear and Digital IC Applications (LDIC)', '07ECE001', ''),
 ('ECE', '2018-2019', 3, 1, 1, 'Saturday', 1, 'Digital Communications (DC)', '16ECE022', ''),
-('ECE', '2018-2019', 3, 1, 1, 'Saturday', 1, 'Antennas and Wave Propagation (AWP)', '08ECE055', ''),
-('ECE', '2018-2019', 3, 1, 2, 'Monday', 1, 'Antennas and Wave Propagation (AWP)', '16ECE120', '');
+('ECE', '2018-2019', 3, 1, 1, 'Saturday', 1, 'Antennas and Wave Propagation (AWP)', '08ECE055', '');
 INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_of_hours`, `subject`, `faculty_id`, `hour`) VALUES
+('ECE', '2018-2019', 3, 1, 2, 'Monday', 1, 'Antennas and Wave Propagation (AWP)', '16ECE120', ''),
 ('ECE', '2018-2019', 3, 1, 2, 'Monday', 1, 'Disaster Management', '17CED031', ''),
 ('ECE', '2018-2019', 3, 1, 2, 'Monday', 1, 'Renewable Energy Technologies', '12EEE077', ''),
 ('ECE', '2018-2019', 3, 1, 2, 'Monday', 1, 'Digital Fabrication', '16MED132', ''),
@@ -3480,8 +3499,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('ECE', '2018-2019', 4, 1, 3, 'Saturday', 1, 'Artificial Neural Networks  & Fuzzy Logic (ANN & FL)', '16ECE119', ''),
 ('ECE', '2018-2019', 4, 1, 3, 'Saturday', 1, 'RADAR Systems (RS)', '16ECE130', ''),
 ('ECE', '2018-2019', 4, 1, 3, 'Saturday', 1, 'Internet of Things (IOT)', '06ECE24', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('CSE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Probability, Statistics and Queuing Theory', '14HSS005', ''),
 ('CSE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Object Oriented Programming through C++', '07CSE011', ''),
 ('CSE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Data Structures', '97CSE004', ''),
@@ -3851,9 +3870,9 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('CSE', '2018-2019', 3, 1, 2, 'Friday', 1, 'Computer Networks', '16CSE092', ''),
 ('CSE', '2018-2019', 3, 1, 2, 'Friday', 1, 'Compiler Design', '07CSE062', ''),
 ('CSE', '2018-2019', 3, 1, 2, 'Friday', 1, 'Operating Systems', '07CSE006', ''),
-('CSE', '2018-2019', 3, 1, 2, 'Saturday', 1, 'Compiler Design', '07CSE062', ''),
-('CSE', '2018-2019', 3, 1, 2, 'Saturday', 1, 'Operating Systems', '07CSE006', '');
+('CSE', '2018-2019', 3, 1, 2, 'Saturday', 1, 'Compiler Design', '07CSE062', '');
 INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_of_hours`, `subject`, `faculty_id`, `hour`) VALUES
+('CSE', '2018-2019', 3, 1, 2, 'Saturday', 1, 'Operating Systems', '07CSE006', ''),
 ('CSE', '2018-2019', 3, 1, 2, 'Saturday', 1, 'Computer Networks', '16CSE092', ''),
 ('CSE', '2018-2019', 3, 1, 2, 'Saturday', 1, 'Object Oriented Analysis and Design', '16CSE012', ''),
 ('CSE', '2019-2020', 3, 1, 3, 'Monday', 1, 'Compiler Design', '00CSE007', ''),
@@ -3945,26 +3964,26 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('CSE', '2018-2019', 4, 1, 2, 'Saturday', 1, 'Management Science', '14HSS014', ''),
 ('CSE', '2018-2019', 4, 1, 2, 'Saturday', 1, 'Network Security', '15CSE032', ''),
 ('CSE', '2018-2020', 4, 1, 2, 'Saturday', 1, 'Big Data Analytics', '17CSE017', ''),
-('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Monday', 1, 'Thermodynamics', '06MED035', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Thermodynamics', '06MED035', ''),
-('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Tuesday', 1, 'Automotive chassis', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Thermodynamics', '06MED035', ''),
-('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Wednesday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
-('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Thursday', 1, 'Automotive chassis', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Friday', 1, 'Thermodynamics', '06MED035', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Automotive chassis', '18AED009', ''),
 ('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Partial Differential Equations and Numerical Methods (PDE&NM)', '10HSS020', ''),
-('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Data structures through C', '19ITD007', ''),
-('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Basic Electrical and Electranics Engineering', '12EEE075', ''),
+('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Data structures through C', '18AED009', ''),
+('AE', '2019-2020', 2, 1, 1, 'Saturday', 1, 'Basic Electrical and Electranics Engineering', '18AED009', ''),
 ('AE', '2019-2020', 3, 1, 1, 'Monday', 1, 'Automotive Chassis', '13AMD041', ''),
 ('AE', '2019-2020', 3, 1, 1, 'Monday', 2, 'Open Elective -1', '17AED046', ''),
 ('AE', '2019-2020', 3, 1, 1, 'Monday', 2, 'Open Elective -1', '17AED013', ''),
@@ -4311,8 +4330,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('ECE', '2018-2019', 4, 1, 3, 'Saturday', 1, 'Artificial Neural Networks  & Fuzzy Logic (ANN & FL)', '16ECE119', ''),
 ('ECE', '2018-2019', 4, 1, 3, 'Saturday', 1, 'RADAR Systems (RS)', '16ECE130', ''),
 ('ECE', '2018-2019', 4, 1, 3, 'Saturday', 1, 'Internet of Things (IOT)', '06ECE24', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('EIE', '2018-2019', 4, 2, 1, 'Monday', 1, 'Robotics and Applications', '18EIE012', ''),
 ('EIE', '2018-2019', 4, 2, 1, 'Monday', 2, 'Virtual Instrumentation', '17EIE043', ''),
 ('EIE', '2018-2019', 4, 2, 1, 'Monday', 1, 'Analytical Instrumentation', '11EIE004', ''),
@@ -4332,8 +4351,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('EIE', '2018-2019', 4, 2, 1, 'Saturday', 1, 'Robotics and Applications', '18EIE012', ''),
 ('EIE', '2018-2019', 4, 2, 1, 'Saturday', 1, 'Analytical Instrumentation', '11EIE004', ''),
 ('EIE', '2018-2019', 4, 2, 1, 'Saturday', 1, 'Elective 1 (Principles and Applications of Nanotechnology,Instrumentation Practices in Industries)', '13EIE031, 14EIE036', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('EIE', '2018-2019', 4, 2, 2, 'Monday', 1, 'Virtual Instrumentation', 'I6EIE008', ''),
 ('EIE', '2018-2019', 4, 2, 2, 'Monday', 1, 'Elective 1 (Principles and Applications of Nanotechnology,Instrumentation Practices in Industries)', '07EIE055, 14EIE036', ''),
 ('EIE', '2018-2019', 4, 2, 2, 'Tuesday', 1, 'Virtual Instrumentation', 'I6EIE008', ''),
@@ -4395,10 +4414,10 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('IT', '2018-2019', 2, 1, 2, 'Saturday', 1, 'Data Structures (DS)', '07CSE054', ''),
 ('IT', '2018-2019', 2, 1, 2, 'Saturday', 1, 'Electronic Devices and Circuits (EDC)', '97ECE002', ''),
 ('IT', '2018-2019', 2, 1, 2, 'Saturday', 2, 'Gender Sensitization (GS)', '10HSS026', ''),
-('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Complex Analysis& Special Functions (CA& SF)', '10HSS018', ''),
-('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Signals and Systems (SS)', '18ece017', ''),
-('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Data Structures (DS)', '11CSE010', '');
+('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Complex Analysis& Special Functions (CA& SF)', '10HSS018', '');
 INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_of_hours`, `subject`, `faculty_id`, `hour`) VALUES
+('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Signals and Systems (SS)', '18ece017', ''),
+('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Data Structures (DS)', '11CSE010', ''),
 ('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Network Theory (NT)', '11ECE021', ''),
 ('IT', '2018-2019', 2, 1, 3, 'Monday', 1, 'Electronic Devices and Circuits (EDC)', '11ECE009', ''),
 ('IT', '2018-2019', 2, 1, 3, 'Tuesday', 1, 'Network Theory (NT)', '11ECE021', ''),
@@ -4653,8 +4672,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('IT', '2018-2019', 4, 1, 3, 'Saturday', 1, 'Artificial Neural Networks  & Fuzzy Logic (ANN & FL)', '16ECE119', ''),
 ('IT', '2018-2019', 4, 1, 3, 'Saturday', 1, 'RADAR Systems (RS)', '16ECE130', ''),
 ('IT', '2018-2019', 4, 1, 3, 'Saturday', 1, 'Internet of Things (IOT)', '06ECE24', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
-('', '', 0, 0, 0, '', 0, '', '', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('EEE', '2018-2019', 3, 2, 1, 'Monday', 1, 'Business Economics and Financial Analysis', '01HSS001', ''),
 ('EEE', '2018-2019', 3, 2, 1, 'Monday', 2, 'Open Elective-1 (Disaster Management,Renewable Energy Technologies, Digital Fabrication, Principles of Electronics & Communications, Object Oriented Programming through JAVA, Cyber Security, Principle', '15CED068,15EE028,16MED132,16ECE113,15ITD050,17CSE0', ''),
 ('EEE', '2018-2019', 3, 2, 1, 'Tuesday', 1, 'Bio-Medical Instrumentation', '16EIE060', ''),
@@ -4675,8 +4694,8 @@ INSERT INTO `ttinfo` (`dept`, `academic_year`, `year`, `sem`, `sec`, `day`, `no_
 ('EEE', '2018-2019', 3, 2, 1, 'Saturday', 1, 'Linear and Digital IC Application', '01EIE008', ''),
 ('EEE', '2018-2019', 3, 2, 1, 'Saturday', 1, 'Industrial Instrumentation', '13EIE054', ''),
 ('EEE', '2018-2019', 3, 2, 1, 'Saturday', 1, 'Bio-Medical Instrumentation', '16EIE060', ''),
-('EEE', '', 0, 0, 0, '', 0, '', '', ''),
-('EEE', '', 0, 0, 0, '', 0, '', '', ''),
+('EEE', '', 0, 0, 0, '', 0, '', '18AED009', ''),
+('EEE', '', 0, 0, 0, '', 0, '', '18AED009', ''),
 ('EEE', '2018-2019', 3, 2, 2, 'Monday', 1, 'Computer Organization', '14EIE036', ''),
 ('EEE', '2018-2019', 3, 2, 2, 'Monday', 2, 'Open Elective-1 (Disaster Management,Renewable Energy Technologies, Digital Fabrication, Principles of Electronics & Communications, Object Oriented Programming through JAVA, Cyber Security, Principle', '15CED068,15EE028,16MED132,16ECE113,15ITD050,17CSE0', ''),
 ('EEE', '2018-2019', 3, 2, 2, 'Monday', 1, 'Business Economics and Financial Analysis', '01HSS001', ''),
@@ -4746,6 +4765,12 @@ ALTER TABLE `presentation`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `profimg`
+--
+ALTER TABLE `profimg`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `studentdb`
 --
 ALTER TABLE `studentdb`
@@ -4778,6 +4803,12 @@ ALTER TABLE `holidays`
 --
 ALTER TABLE `presentation`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `profimg`
+--
+ALTER TABLE `profimg`
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 DELIMITER $$
 --
