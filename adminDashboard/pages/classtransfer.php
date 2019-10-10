@@ -1,8 +1,8 @@
 <?php 
-session_start();
-if(!isset($_SESSION['user'])){
-    header("Location: ../../homepage.php");
-}	
+// session_start();
+// if(!isset($_SESSION['user'])){
+//     header("Location: ../../homepage.php");
+// }	
 ?>
 
 <!DOCTYPE html>
@@ -138,6 +138,9 @@ session_start();
                           <li>
                               <a href="classtransfer.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Class Tranfer</a></font>
                           </li>
+                          <li>
+                            <a href="editprofile.php"><i class="fa fa-edit fa-fw"></i> <font color="black">Edit Profile</a></font>
+                        </li>
                               </ul>
                               <!-- /.nav-second-level -->
                           </li>
@@ -187,11 +190,11 @@ session_start();
 
     <div class="input-group">
       <label>Enter Subject: </label>
-      <input type="text" name="subject" value="<?php echo $subject; ?>" required>
+      <input type="text" name="subject" value="<?php echo $subject; ?>" required autocomplete="off">
     </div>
     <div class="input-group">
       <label>Enter replacement faculty ID: </label>
-      <input type="text" name="facid" value="<?php echo $repfac; ?>" required>
+      <input type="text" name="facid" value="<?php echo $repfac; ?>" required autocomplete="off">
     </div>
     <!-- <div class="input-group">
       <label>Emp Id</label>

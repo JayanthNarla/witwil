@@ -1,3 +1,10 @@
+<?php
+if(isset($_SESSION['user'])){
+include("logout.php");
+}
+// header("Location:homepage.php");
+?>
+
 <!DOCTYPE html>
 
 <html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="stndz-style"></style>

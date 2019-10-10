@@ -182,6 +182,9 @@ window.onunload=function(){void(0);}
 						<li>
                             <a href="changepassword.php"><i class="fa fa-edit fa-fw"></i> <font color="black"> Change password</a></font>
                         </li>
+                        <li>
+                            <a href="editprofile.php"><i class="fa fa-edit fa-fw"></i> <font color="black">Edit Profile</a></font>
+                        </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

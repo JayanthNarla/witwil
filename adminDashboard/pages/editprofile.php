@@ -10,8 +10,6 @@ $query = "SELECT file FROM profimg WHERE faculty_id='".$_SESSION['id']."'";
 $result = mysqli_fetch_assoc(mysqli_query($connect, $query));
 $num=mysqli_num_rows(mysqli_query($connect, $query));
 echo "<script>console.log(".json_encode($num).")</script>";
-if($num==0){
-
 $allowed = array("jpg", "png", "gif", "bmp","jpeg");
 
 if(isset($_POST["import"]))
@@ -36,13 +34,13 @@ if(isset($_POST["import"]))
 						{
 							// $filesize = filesize($file);
  
-                            $query = "SELECT file FROM profimg WHERE faculty_id='".$_SESSION['id']."'";
-                            $result = mysqli_fetch_assoc(mysqli_query($connect, $query));
+                            // $query = "SELECT file FROM profimg WHERE faculty_id='".$_SESSION['id']."'";
+                            // $result = mysqli_fetch_assoc(mysqli_query($connect, $query));
 
-                            echo "<script>console.log(".json_encode($result['file']).")</script>";
-                            $actual_image_name = $result['file'];
+                            // echo "<script>console.log(".json_encode($result['file']).")</script>";
+                            // $actual_image_name = $result['file'];
 
-					    // echo "<script>alert('File Uploded ');window.location.href='./userprofile.php';  </script>"; 
+					    echo "<script>alert('File Uploded ');window.location.href='./userprofile.php';  </script>"; 
 						}
 						
 						
@@ -58,11 +56,11 @@ if(isset($_POST["import"]))
 						{
 							// $filesize = filesize($file);
 
-                            $query = "SELECT file FROM profimg WHERE faculty_id='".$_SESSION['id']."'";
-                            $result = mysqli_fetch_assoc(mysqli_query($connect, $query));
+                            // $query = "SELECT file FROM profimg WHERE faculty_id='".$_SESSION['id']."'";
+                            // $result = mysqli_fetch_assoc(mysqli_query($connect, $query));
 
-                            echo "<script>console.log(".json_encode($result['file']).")</script>";
-                            $actual_image_name = $result['file'];
+                            // echo "<script>console.log(".json_encode($result['file']).")</script>";
+                            // $actual_image_name = $result['file'];
 
 					echo "<script>alert('File Uploded ');window.location.href='./userprofile.php';  </script>"; 
 						}
@@ -77,12 +75,6 @@ if(isset($_POST["import"]))
 		echo '<h1 style="color:red;">File Format not supported.</h1>';
 		
 	}
-                        
-    
-	
-}
-} else {
-    $actual_image_name = $result['file'];
 }
 ?>
 <!DOCTYPE html>
@@ -277,7 +269,7 @@ window.onunload=function(){void(0);}
                 </div>
 </div>
 <!-- </div> -->
-<div id="profDets">
+<!-- <div id="profDets">
 
     <div id="about-img">
         <img class="profile-photo" align="middle" height="250px" width="200px" src="./uploads/<?php echo $actual_image_name; ?>" />
@@ -299,7 +291,7 @@ window.onunload=function(){void(0);}
 
     
 
-</div>
+</div> -->
 <!-- <center>
 <div id="updatebutton"><form>
 <input type="submit" name="update" value="update" class="btn btn-info"></form>
@@ -317,7 +309,7 @@ window.onunload=function(){void(0);}
     <!-- /#wrapper -->
 
 
-<script>
+<!-- <script>
 
     <?php 
         if($num!=0) {
@@ -333,7 +325,7 @@ window.onunload=function(){void(0);}
     } 
     ?>
 
-</script>
+</script> -->
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
